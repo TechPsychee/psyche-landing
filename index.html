@@ -3,23 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Psyche.solutions - A modern digital therapeutic companionship platform offering AI-powered support, privacy-first approach, and personalized mental health care.">
+    <meta name="keywords" content="therapy, mental health, AI therapy, digital therapeutics, mental wellness, online therapy">
+    <meta name="author" content="Psyche.solutions">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Psyche.solutions - Modern Digital Therapeutic Companionship">
+    <meta property="og:description" content="Experience the future of mental wellness with our AI-powered therapeutic platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://psyche.solutions">
+    
+    <title>Psyche.solutions - Modern Digital Therapeutic Companionship</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        h1 {
-            color: #333;
+        .gradient-bg {
+            background: linear-gradient(-45deg, #2D3047, #419D78, #2D3047, #419D78);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
-<body>
-    <h1>Coming Soon</h1>
+<body class="gradient-bg min-h-screen">
+    <div class="container mx-auto px-4 flex flex-col min-h-screen justify-center items-center text-white">
+        <!-- Main Content -->
+        <div class="glass p-8 rounded-2xl max-w-3xl w-full text-center space-y-8">
+            <div class="space-y-4">
+                <h1 class="text-5xl font-bold mb-4">Psyche.solutions</h1>
+                <p class="text-xl font-light">Modern Digital Therapeutic Companionship Platform</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-12">
+                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Support</h3>
+                    <p class="text-sm opacity-90">Advanced therapeutic conversations powered by state-of-the-art AI technology</p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">Privacy First</h3>
+                    <p class="text-sm opacity-90">HIPAA-compliant platform with end-to-end encryption for your security</p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">24/7 Availability</h3>
+                    <p class="text-sm opacity-90">Access therapeutic support whenever you need it, wherever you are</p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
+                    <h3 class="text-xl font-semibold mb-2">Personalized Care</h3>
+                    <p class="text-sm opacity-90">Adaptive support that learns and grows with your therapeutic journey</p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <p class="text-lg mb-8">Coming Soon</p>
+                <div class="flex justify-center space-x-4">
+                    <button class="bg-[#419D78] text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all">
+                        Join Waitlist
+                    </button>
+                    <button class="border border-[#419D78] px-6 py-3 rounded-lg font-medium hover:bg-[#419D78] transition-all">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 text-sm opacity-75">
+            <p>&copy; 2024 Psyche.solutions. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Psyche.solutions",
+      "description": "Modern digital therapeutic companionship platform offering AI-powered mental health support",
+      "url": "https://psyche.solutions",
+      "serviceType": ["Mental Health Service", "Therapeutic Service"],
+      "availableService": {
+        "@type": "HealthCare",
+        "name": "Digital Therapeutic Companionship",
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceType": "Online",
+          "availabilityType": "24/7"
+        }
+      }
+    }
+    </script>
 </body>
 </html>
