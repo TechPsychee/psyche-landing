@@ -17,92 +17,166 @@
     <meta property="og:url" content="https://psyche.solutions">
     
     <title>Psyche.solutions - Modern Digital Therapeutic Companionship</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        .gradient-bg {
-            background: linear-gradient(-45deg, #2D3047, #419D78, #2D3047, #419D78);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+
+        body {
+            background: linear-gradient(135deg, #68A288 0%, #4A7A63 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
         }
-        .glass {
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .main-content {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px 20px;
+            margin: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .coming-soon {
+            font-size: 24px;
+            margin: 40px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .button {
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer {
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 20px;
+            }
+            
+            .feature-card h3 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen">
-    <div class="container mx-auto px-4 flex flex-col min-h-screen justify-center items-center text-white">
-        <!-- Main Content -->
-        <div class="glass p-8 rounded-2xl max-w-3xl w-full text-center space-y-8">
-            <div class="space-y-4">
-                <h1 class="text-5xl font-bold mb-4">Psyche.solutions</h1>
-                <p class="text-xl font-light">Modern Digital Therapeutic Companionship Platform</p>
-            </div>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>Psyche.solutions</h1>
+            <div class="subtitle">Modern Digital Therapeutic Companionship Platform</div>
 
-            <div class="grid md:grid-cols-2 gap-6 mt-12">
-                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">AI-Powered Support</h3>
-                    <p class="text-sm opacity-90">Advanced therapeutic conversations powered by state-of-the-art AI technology</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>AI-Powered Support</h3>
+                    <p>Advanced therapeutic conversations powered by state-of-the-art AI technology</p>
                 </div>
-                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">Privacy First</h3>
-                    <p class="text-sm opacity-90">HIPAA-compliant platform with end-to-end encryption for your security</p>
+                <div class="feature-card">
+                    <h3>Privacy First</h3>
+                    <p>HIPAA-compliant platform with end-to-end encryption for your security</p>
                 </div>
-                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">24/7 Availability</h3>
-                    <p class="text-sm opacity-90">Access therapeutic support whenever you need it, wherever you are</p>
+                <div class="feature-card">
+                    <h3>24/7 Availability</h3>
+                    <p>Access therapeutic support whenever you need it, wherever you are</p>
                 </div>
-                <div class="glass p-6 rounded-xl hover:bg-opacity-20 transition-all">
-                    <h3 class="text-xl font-semibold mb-2">Personalized Care</h3>
-                    <p class="text-sm opacity-90">Adaptive support that learns and grows with your therapeutic journey</p>
+                <div class="feature-card">
+                    <h3>Personalized Care</h3>
+                    <p>Adaptive support that learns and grows with your therapeutic journey</p>
                 </div>
             </div>
 
-            <div class="mt-12">
-                <p class="text-lg mb-8">Coming Soon</p>
-                <div class="flex justify-center space-x-4">
-                    <button class="bg-[#419D78] text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-all">
-                        Join Waitlist
-                    </button>
-                    <button class="border border-[#419D78] px-6 py-3 rounded-lg font-medium hover:bg-[#419D78] transition-all">
-                        Learn More
-                    </button>
-                </div>
+            <div class="coming-soon">Coming Soon</div>
+            
+            <div class="buttons">
+                <a href="#" class="button">Join Waitlist</a>
+                <a href="#" class="button">Learn More</a>
             </div>
         </div>
-
-        <!-- Footer -->
-        <div class="mt-12 text-sm opacity-75">
-            <p>&copy; 2024 Psyche.solutions. All rights reserved.</p>
+        
+        <div class="footer">
+            © 2024 Psyche.solutions. All rights reserved.
         </div>
     </div>
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HealthAndBeautyBusiness",
-      "name": "Psyche.solutions",
-      "description": "Modern digital therapeutic companionship platform offering AI-powered mental health support",
-      "url": "https://psyche.solutions",
-      "serviceType": ["Mental Health Service", "Therapeutic Service"],
-      "availableService": {
-        "@type": "HealthCare",
-        "name": "Digital Therapeutic Companionship",
-        "availableChannel": {
-          "@type": "ServiceChannel",
-          "serviceType": "Online",
-          "availabilityType": "24/7"
-        }
-      }
-    }
-    </script>
 </body>
 </html>
