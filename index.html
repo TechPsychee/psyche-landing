@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Psyche.solutions - A modern digital therapeutic companionship platform offering AI-powered support, privacy-first approach, and personalized mental health care.">
-    <meta name="keywords" content="therapy, mental health, AI therapy, digital therapeutics, mental wellness, online therapy">
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Psyche.solutions - A modern digital therapeutic companionship platform grounded in psychoanalytic theory, offering a containing environment for meaningful therapeutic work through advanced AI.">
+    <meta name="keywords" content="therapeutic companionship, digital therapy, mentalization, containing environment, therapeutic space, psychoanalytic AI">
     <meta name="author" content="Psyche.solutions">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph / Social Media Meta Tags -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="Psyche.solutions - Modern Digital Therapeutic Companionship">
-    <meta property="og:description" content="Experience the future of mental wellness with our AI-powered therapeutic platform.">
+    <meta property="og:description" content="Experience a containing therapeutic environment powered by advanced AI and grounded in contemporary psychoanalytic theory.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://psyche.solutions">
     
@@ -26,7 +26,7 @@
         }
 
         body {
-            background-color: #53565A;
+            background: linear-gradient(135deg, #2E2D29 0%, #1a1a1a 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -38,125 +38,177 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 100%;
             text-align: center;
-            background: linear-gradient(135deg, #53565A 0%, #444749 100%);
+            background: rgba(255, 255, 255, 0.02);
             padding: 40px;
             border-radius: 30px;
+            backdrop-filter: blur(10px);
         }
 
         .main-content {
-            background: #adadad;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 60px 40px;
             margin: 20px auto;
-            max-width: 900px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 42px;
+            font-size: 44px;
             margin-bottom: 20px;
             font-weight: 600;
-            color: #8C1515;
+            color: #2E2D29;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 60px;
-            color: #686b6e;
-            max-width: 600px;
+            color: #53565A;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 400;
             letter-spacing: 0.2px;
+            line-height: 1.4;
         }
 
-        .features-grid {
+        .space-divider {
+            font-size: 20px;
+            color: #8C1515;
+            margin: 40px 0 20px;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .therapeutic-spaces {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            margin: 50px 0;
+            margin: 30px 0;
         }
 
-        .feature-card {
-            background: #d2c295;
+        .space-card {
+            background: #ffffff;
             border-radius: 15px;
-            padding: 30px;
+            padding: 35px;
             text-align: left;
-            border: 1px solid #e0e0e0;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(140, 21, 21, 0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .feature-card:hover {
+        .space-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: rgba(140, 21, 21, 0.2);
         }
 
-        .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #8C1515;
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #53565A;
-        }
-
-        .coming-soon {
+        .space-card h3 {
             font-size: 22px;
-            margin: 50px 0 30px;
+            color: #2E2D29;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .space-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #53565A;
+            flex-grow: 1;
+        }
+
+        .theoretical-foundation {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .foundation-title {
+            font-size: 20px;
+            color: #8C1515;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .foundation-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .foundation-item h4 {
+            font-size: 18px;
             color: #2E2D29;
             font-weight: 500;
         }
 
-        .buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
+        .foundation-item p {
+            font-size: 15px;
+            color: #53565A;
+            line-height: 1.6;
+        }
+
+        .coming-soon {
+            font-size: 24px;
+            margin: 50px 0 30px;
+            color: #2E2D29;
+            font-weight: 500;
+            display: inline-block;
         }
 
         .button {
-            padding: 14px 36px;
+            padding: 16px 40px;
             border-radius: 8px;
-            font-size: 17px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             font-weight: 500;
+            display: inline-block;
+            margin: 0 10px;
         }
 
-        .button:first-child {
+        .primary-button {
             background: #8C1515;
             color: #ffffff;
             border: none;
         }
 
-        .button:last-child {
+        .secondary-button {
             background: #ffffff;
             color: #8C1515;
             border: 2px solid #8C1515;
         }
 
-        .button:first-child:hover {
-            background: #7a1212;
+        .button:hover {
             transform: translateY(-2px);
-        }
-
-        .button:last-child:hover {
-            background: #f8f8f8;
-            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(140, 21, 21, 0.15);
         }
 
         .footer {
             margin-top: 40px;
             color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .therapeutic-spaces, .foundation-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -166,11 +218,6 @@
 
             .main-content {
                 padding: 40px 20px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
             }
             
             h1 {
@@ -182,15 +229,15 @@
                 margin-bottom: 40px;
             }
 
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            .space-card {
+                padding: 25px;
             }
 
             .button {
+                display: block;
                 width: 100%;
                 max-width: 280px;
+                margin: 10px auto;
                 text-align: center;
             }
         }
@@ -200,32 +247,55 @@
     <div class="container">
         <div class="main-content">
             <h1>Psyche.solutions</h1>
-            <div class="subtitle">Modern Digital Therapeutic Companionship Platform</div>
+            <div class="subtitle">A modern digital therapeutic companionship platform grounded in contemporary psychoanalytic theory, offering a secure and containing environment for meaningful therapeutic work.</div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>AI-Powered Support</h3>
-                    <p>Advanced therapeutic conversations powered by state-of-the-art AI technology</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Privacy First</h3>
-                    <p>HIPAA-compliant platform with end-to-end encryption for your security</p>
-                </div>
-                <div class="feature-card">
-                    <h3>24/7 Availability</h3>
-                    <p>Access therapeutic support whenever you need it, wherever you are</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Personalized Care</h3>
-                    <p>Adaptive support that learns and grows with your therapeutic journey</p>
+            <div class="theoretical-foundation">
+                <div class="foundation-title">Theoretical Foundations</div>
+                <div class="foundation-grid">
+                    <div class="foundation-item">
+                        <h4>Mentalization-Based Approach</h4>
+                        <p>Supporting the development of reflective functioning and emotional awareness through AI-guided perspective-taking and understanding.</p>
+                    </div>
+                    <div class="foundation-item">
+                        <h4>Digital Containment</h4>
+                        <p>Creating a secure holding environment that helps process and transform difficult thoughts and emotions into manageable experiences.</p>
+                    </div>
+                    <div class="foundation-item">
+                        <h4>Therapeutic Environment</h4>
+                        <p>Providing a reliable, good-enough space that supports authentic self-expression and creative exploration.</p>
+                    </div>
+                    <div class="foundation-item">
+                        <h4>Relational Understanding</h4>
+                        <p>Facilitating insight into relationship patterns and internal object relations through advanced pattern recognition.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="coming-soon">Coming Soon</div>
+            <div class="space-divider">Digital Therapeutic Spaces</div>
+            <div class="therapeutic-spaces">
+                <div class="space-card">
+                    <h3>Welcome Area</h3>
+                    <p>A calming entry point providing initial containment and clear information about our therapeutic approach, ensuring a secure and professional first encounter.</p>
+                </div>
+                <div class="space-card">
+                    <h3>Reception Space</h3>
+                    <p>A thoughtfully designed space for registration and initial assessment, establishing the therapeutic frame and ensuring appropriate support levels.</p>
+                </div>
+                <div class="space-card">
+                    <h3>Therapeutic Environment</h3>
+                    <p>A containing space for real-time therapeutic dialogue, offering emotional support and crisis intervention through advanced AI companionship.</p>
+                </div>
+                <div class="space-card">
+                    <h3>Reflection Room</h3>
+                    <p>A dedicated space for reviewing therapeutic progress, recognizing patterns, and developing deeper insights into your journey.</p>
+                </div>
+            </div>
+
+            <div class="coming-soon">Opening Soon</div>
             
             <div class="buttons">
-                <a href="#" class="button">Join Waitlist</a>
-                <a href="#" class="button">Learn More</a>
+                <a href="#" class="button primary-button">Join Waitlist</a>
+                <a href="#" class="button secondary-button">Learn More</a>
             </div>
         </div>
         
