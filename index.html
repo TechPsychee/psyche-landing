@@ -25,8 +25,33 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
         body {
-            background: linear-gradient(135deg, #68A288 0%, #4A7A63 100%);
+            background: linear-gradient(-45deg, #68A288, #4A7A63, #2E5744, #53836B);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -40,6 +65,7 @@
             max-width: 1200px;
             width: 100%;
             text-align: center;
+            animation: fadeUp 1s ease-out;
         }
 
         .main-content {
@@ -48,18 +74,36 @@
             padding: 40px 20px;
             margin: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
         }
 
         h1 {
             font-size: 48px;
             margin-bottom: 16px;
             font-weight: bold;
+            position: relative;
+            display: inline-block;
         }
 
         .subtitle {
             font-size: 24px;
             margin-bottom: 48px;
             font-weight: 300;
+            opacity: 0;
+            animation: fadeUp 1s ease-out forwards;
+            animation-delay: 0.3s;
         }
 
         .features-grid {
@@ -76,6 +120,21 @@
             padding: 24px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeUp 0.5s ease-out forwards;
+            cursor: pointer;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.4s; }
+        .feature-card:nth-child(2) { animation-delay: 0.6s; }
+        .feature-card:nth-child(3) { animation-delay: 0.8s; }
+        .feature-card:nth-child(4) { animation-delay: 1s; }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .feature-card h3 {
@@ -86,11 +145,15 @@
         .feature-card p {
             font-size: 16px;
             line-height: 1.5;
+            transition: all 0.3s ease;
         }
 
         .coming-soon {
             font-size: 24px;
             margin: 40px 0;
+            opacity: 0;
+            animation: fadeUp 1s ease-out forwards;
+            animation-delay: 1.2s;
         }
 
         .buttons {
@@ -98,6 +161,9 @@
             gap: 16px;
             justify-content: center;
             margin-top: 24px;
+            opacity: 0;
+            animation: fadeUp 1s ease-out forwards;
+            animation-delay: 1.4s;
         }
 
         .button {
@@ -110,16 +176,38 @@
             background: transparent;
             color: white;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .button:hover {
             background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            animation: pulseGlow 2s infinite;
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover::after {
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         .footer {
             margin-top: 40px;
             opacity: 0.8;
             font-size: 14px;
+            animation: fadeUp 1s ease-out forwards;
+            animation-delay: 1.6s;
         }
 
         @media (max-width: 768px) {
@@ -137,6 +225,16 @@
             
             .feature-card h3 {
                 font-size: 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 100%;
+                max-width: 250px;
             }
         }
     </style>
