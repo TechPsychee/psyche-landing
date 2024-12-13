@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Progress Analytics Illustration -->
+    <rect width="200" height="200" fill="#ffffff"/>
+    
+    <!-- Graph Background -->
+    <rect x="40" y="40" width="120" height="120" 
+          fill="#f8f8f8" 
+          stroke="#8C1515" 
+          stroke-width="2"
+          rx="10"/>
+    
+    <!-- Graph Lines -->
+    <path d="M50 140
+             L50 60
+             M50 140
+             L180 140" 
+          stroke="#8C1515" 
+          stroke-width="1"
+          stroke-opacity="0.5"/>
+    
+    <!-- Data Line -->
+    <path d="M60 120
+             C80 100, 90 110, 100 90
+             C110 70, 130 80, 150 60"
+          fill="none"
+          stroke="#8C1515"
+          stroke-width="2"
+          stroke-linecap="round"/>
+    
+    <!-- Data Points -->
+    <circle cx="60" cy="120" r="4" fill="#8C1515"/>
+    <circle cx="100" cy="90" r="4" fill="#8C1515"/>
+    <circle cx="150" cy="60" r="4" fill="#8C1515"/>
+    
+    <!-- Growth Indicator -->
+    <path d="M160 80 L170 70 L180 80" 
+          stroke="#8C1515" 
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+</svg>
