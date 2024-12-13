@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Background -->
+    <rect width="200" height="200" fill="#ffffff"/>
+    
+    <!-- Journal/Book Base -->
+    <path d="M50 60
+             C50 50, 60 45, 70 45
+             L150 45
+             C160 45, 170 50, 170 60
+             L170 150
+             C170 160, 160 165, 150 165
+             L70 165
+             C60 165, 50 160, 50 150
+             Z"
+          fill="#ffffff"
+          stroke="#8C1515"
+          stroke-width="2"/>
+    
+    <!-- Page Lines -->
+    <g stroke="#8C1515" stroke-width="1" stroke-opacity="0.3">
+        <line x1="70" y1="75" x2="150" y2="75"/>
+        <line x1="70" y1="95" x2="150" y2="95"/>
+        <line x1="70" y1="115" x2="150" y2="115"/>
+        <line x1="70" y1="135" x2="150" y2="135"/>
+    </g>
+    
+    <!-- Reflection Elements -->
+    <g transform="translate(0 0)">
+        <!-- Thought Bubble -->
+        <circle cx="85" cy="90" r="12" 
+                fill="none" 
+                stroke="#8C1515" 
+                stroke-width="1.5"/>
+        <circle cx="105" cy="80" r="8" 
+                fill="none" 
+                stroke="#8C1515" 
+                stroke-width="1.5"/>
+        <circle cx="120" cy="75" r="5" 
+                fill="none" 
+                stroke="#8C1515" 
+                stroke-width="1.5"/>
+                
+        <!-- Growth Symbol -->
+        <path d="M130 120 
+                 C140 110, 150 115, 150 105
+                 M130 120
+                 C120 110, 110 115, 110 105"
+              fill="none"
+              stroke="#8C1515"
+              stroke-width="1.5"
+              stroke-linecap="round"/>
+    </g>
+    
+    <!-- Binding Detail -->
+    <path d="M45 60
+             C45 50, 50 45, 60 45
+             L65 45
+             L65 165
+             L60 165
+             C50 165, 45 160, 45 150
+             Z"
+          fill="none"
+          stroke="#8C1515"
+          stroke-width="2"/>
+    
+    <!-- Connection Points -->
+    <circle cx="85" cy="90" r="2" fill="#8C1515"/>
+    <circle cx="130" cy="120" r="2" fill="#8C1515"/>
+    
+    <!-- Subtle Decorative Elements -->
+    <path d="M75 45 L75 165" 
+          stroke="#8C1515" 
+          stroke-width="1"
+          stroke-opacity="0.2"/>
+          
+    <!-- Inner Reflection Flourish -->
+    <path d="M90 150 
+             C100 140, 120 140, 130 150" 
+          fill="none"
+          stroke="#8C1515"
+          stroke-width="1.5"
+          stroke-opacity="0.6"
+          stroke-linecap="round"/>
+</svg>
