@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Security Icon -->
+    <g transform="translate(0 0)">
+        <circle cx="100" cy="100" r="90" fill="#ffffff" stroke="#8C1515" stroke-width="2"/>
+        <path d="M100 40 
+                L140 65 
+                L140 110
+                C140 140, 100 160, 100 160
+                C100 160, 60 140, 60 110
+                L60 65 Z" 
+            fill="none" 
+            stroke="#8C1515" 
+            stroke-width="2"/>
+        <circle cx="100" cy="90" r="15" fill="none" stroke="#8C1515" stroke-width="2"/>
+        <path d="M100 105 L100 125" stroke="#8C1515" stroke-width="2"/>
+    </g>
+</svg>
