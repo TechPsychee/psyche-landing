@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Background Circle -->
+    <circle cx="100" cy="100" r="98" fill="#ffffff" stroke="#8C1515" stroke-width="2"/>
+    
+    <!-- Pine Tree Layers -->
+    <path d="M100 40 &#10;             L130 80 &#10;             L120 80&#10;             L143 110&#10;             L135 110&#10;             L160 140&#10;             L40 140&#10;             L65 110&#10;             L55 110&#10;             L80 80&#10;             L67 85&#10;             Z" fill="none" stroke="#8C1515" stroke-width="2.5" stroke-linejoin="round"/>
+    
+    <!-- Tree Trunk -->
+    <rect x="90" y="140" width="20" height="30" fill="#8C1515"/>
+    
+    <!-- Connection Curves -->
+    <path d="M68 95 C 85 125, 115 125, 130 93" fill="none" stroke="#8C1515" stroke-width="2" stroke-linecap="round"/>
+          
+    <path d="M61 115 C 85 145, 115 145, 140 117" fill="none" stroke="#8C1515" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Decorative Elements -->
+    <circle cx="115" cy="90" r="5" fill="#8C1515" opacity="1.0"/>
+  
+      <!-- Decorative Elements -->
+    <circle cx="85" cy="90" r="5" fill="#8C1515" opacity="1.0"/>
+  
+  
+      <circle cx="85" cy="90" r="6" fill="none" stroke="#8C1515" stroke-width="0.5" opacity="0.2"/>
+    <circle cx="115" cy="90" r="6" fill="none" stroke="#8C1515" stroke-width="0.5" opacity="0.2"/>
+    
+    <!-- Connection Points -->
+    
+</svg>
