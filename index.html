@@ -27,53 +27,14 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yakupisik.com/">
 
-    <!-- Favicon and App Icons -->
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="alternate icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- Accessibility and Performance -->
-    <meta name="theme-color" content="#0a0a0a">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Keywords for SEO -->
-    <meta name="keywords" content="AI developer, psychology technology, mental health tech, full-stack developer, GPT-4 applications, psychoanalysis, innovative software, machine learning, natural language processing, iOS development">
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Yakup Isik",
-      "jobTitle": "AI Developer and Psychoanalysis Researcher",
-      "url": "https://yakupisik.com",
-      "sameAs": [
-        "https://linkedin.com/in/yakupisik",
-        "https://github.com/yakupisik"
-      ],
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Sabanci University",
-          "degree": "M.Sc. Information Technology"
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Istanbul University",
-          "degree": "Psychology"
-        }
-      ],
-      "knowsAbout": [
-        "Artificial Intelligence",
-        "Psychoanalysis",
-        "Software Development",
-        "Mental Health Technologies"
-      ]
-    }
-    </script>
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
         :root {
             --glitch-color-1: #00ff41;
@@ -87,104 +48,40 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: none;
         }
 
         body, html {
             height: 100%;
             background: var(--background);
             font-family: 'Space Mono', monospace;
-            cursor: none;
-            overflow-x: hidden;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .cursor {
             position: fixed;
-            width: 10px;
-            height: 10px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--glitch-color-1);
             border-radius: 50%;
-            background: var(--glitch-color-1);
-            mix-blend-mode: difference;
-            pointer-events: none;
             transform: translate(-50%, -50%);
+            pointer-events: none;
             z-index: 9999;
-            transition: width 0.2s ease, height 0.2s ease, transform 0.05s linear;
+            transition: 
+                width 0.2s ease, 
+                height 0.2s ease, 
+                border-color 0.3s ease,
+                transform 0.1s ease;
         }
 
-        .cursor-follower {
-            position: fixed;
+        .cursor.active {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            border: 2px solid var(--glitch-color-1);
-            mix-blend-mode: difference;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            transition: width 0.3s ease, height 0.3s ease, transform 0.2s ease;
-            opacity: 0.7;
-
-
-        .glitch-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            padding: 0 20px;
+            border-color: var(--glitch-color-2);
         }
 
-        .glitch-text {
-            position: relative;
-            font-size: 10vw;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch-text::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--glitch-color-1);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
-        }
-
-        .glitch-text::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--glitch-color-2);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% { clip: rect(74px, 9999px, 54px, 0); }
-            25% { clip: rect(63px, 9999px, 73px, 0); }
-            50% { clip: rect(44px, 9999px, 56px, 0); }
-            75% { clip: rect(83px, 9999px, 54px, 0); }
-            100% { clip: rect(64px, 9999px, 74px, 0); }
-        }
-
-        @keyframes glitch-anim2 {
-            0% { clip: rect(84px, 9999px, 54px, 0); }
-            25% { clip: rect(53px, 9999px, 73px, 0); }
-            50% { clip: rect(44px, 9999px, 56px, 0); }
-            75% { clip: rect(93px, 9999px, 54px, 0); }
-            100% { clip: rect(64px, 9999px, 74px, 0); }
-        }
-
+        /* Rest of the previous styles remain the same */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -279,6 +176,66 @@
             width: 100%;
         }
 
+        .glitch-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .glitch-text {
+            position: relative;
+            font-size: 10vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glitch-color-1);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--glitch-color-2);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(74px, 9999px, 54px, 0); }
+            25% { clip: rect(63px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(83px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(84px, 9999px, 54px, 0); }
+            25% { clip: rect(53px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(93px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
+        }
+
         .subheading {
             color: var(--text-secondary);
             text-align: center;
@@ -286,71 +243,24 @@
             margin: 20px auto;
             font-size: 1.2rem;
         }
-        #contact {
-            background: rgba(15,15,15,0.9);
-            padding: 50px 0;
+
+        /* Social Links Styles */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .social-link {
+            color: var(--glitch-color-1);
+            font-size: 2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
-        .contact-form {
-            display: grid;
-            gap: 20px;
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            background: rgba(30,30,30,0.8);
-            border: 1px solid var(--glitch-color-1);
-            color: var(--text-primary);
-            padding: 15px;
-            font-family: 'Space Mono', monospace;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--glitch-color-2);
-            box-shadow: 0 0 15px rgba(255,0,85,0.3);
-        }
-
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--glitch-color-1);
-            color: var(--background);
-            border: none;
-            padding: 15px 30px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            justify-self: start;
-        }
-
-        .submit-btn:hover {
-            background: var(--glitch-color-2);
-        }
-
-        .form-group label {
-            position: absolute;
-            top: -25px;
-            left: 0;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
+        .social-link:hover {
+            color: var(--glitch-color-2);
+            transform: scale(1.2);
         }
 
         @media (max-width: 768px) {
@@ -374,7 +284,6 @@
 </head>
 <body>
     <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
     <nav class="interactive-menu">
         <a href="#home" class="menu-item">Home</a>
@@ -433,111 +342,48 @@
             </div>
         </div>
     </section>
+
     <section id="contact" class="content-section">
-        <div class="contact-container">
-            <div class="project-card">
-                <h3>Get in Touch</h3>
-                <form class="contact-form" netlify>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required 
-                               placeholder="Your Name" autocomplete="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required 
-                               placeholder="Your Email" autocomplete="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required 
-                                  placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+        <div class="project-card">
+            <h3>Connect With Me</h3>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/yakupisik" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://medium.com/@yakupisik" target="_blank" class="social-link">
+                    <i class="fab fa-medium"></i>
+                </a>
+                <a href="https://github.com/yakupisik" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <script>
-        // Advanced Smooth Cursor Interaction
+        // Advanced Cursor Interaction
         const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        // Cursor Interpolation
         let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
 
-        function lerp(start, end, amt) {
-            return (1 - amt) * start + amt * end;
-        }
-
-        function animate() {
-            // Smooth interpolation with variable speed
-            const speed = 0.2;
-            cursorX = lerp(cursorX, mouseX, speed);
-            cursorY = lerp(cursorY, mouseY, speed);
-
-            // Update cursor positions
-            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-            cursorFollower.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-
-            requestAnimationFrame(animate);
-        }
-
-        // Track mouse movement
+        // Update mouse position
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+            
+            // Move cursor
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
         });
 
         // Interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .project-card, .menu-item, .contact-form input, .contact-form textarea');
+        const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link');
         
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-                cursorFollower.style.transform = 'translate(-50%, -50%) scale(3)';
+                cursor.classList.add('active');
             });
             
             el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
-            });
-        });
-
-        // Start animation
-        animate();
-
-        // Form submission handling
-        const form = document.querySelector('.contact-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Basic form validation
-            const name = form.querySelector('#name').value.trim();
-            const email = form.querySelector('#email').value.trim();
-            const message = form.querySelector('#message').value.trim();
-
-            if (name && email && message) {
-                // Here you would typically send the form data
-                alert('Thank you for your message! I will get back to you soon.');
-                form.reset();
-            } else {
-                alert('Please fill out all fields.');
-            }
-        });
-
-        // Interactive hover effects
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-                cursorFollower.style.transform = 'translate(-50%, -50%) scale(3)';
-            });
-            card.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.classList.remove('active');
             });
         });
     </script>
