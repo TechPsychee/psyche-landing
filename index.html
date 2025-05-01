@@ -3,14 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yakup Isik | Innovator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Primary Meta Tags -->
+    <title>Yakup Isik | AI & Psychology Innovator | Full-Stack Developer</title>
+    <meta name="title" content="Yakup Isik | AI & Psychology Innovator | Full-Stack Developer">
+    <meta name="description" content="Pioneering the intersection of psychoanalysis and technology. Creating AI-driven mental health solutions, full-stack applications, and innovative digital experiences.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yakupisik.com/">
+    <meta property="og:title" content="Yakup Isik | AI & Psychology Innovator">
+    <meta property="og:description" content="Bridging psychology and technology through innovative AI-powered solutions. Explore cutting-edge projects in mental health technology.">
+    <meta property="og:image" content="https://yakupisik.com/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yakupisik.com/">
+    <meta property="twitter:title" content="Yakup Isik | AI & Psychology Innovator">
+    <meta property="twitter:description" content="Pioneering AI-driven mental health technologies. Full-stack developer merging psychology and cutting-edge software solutions.">
+    <meta property="twitter:image" content="https://yakupisik.com/twitter-image.png">
+
+    <!-- Robots and Canonical -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yakupisik.com/">
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Accessibility and Performance -->
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Keywords for SEO -->
+    <meta name="keywords" content="AI developer, psychology technology, mental health tech, full-stack developer, GPT-4 applications, psychoanalysis, innovative software, machine learning, natural language processing, iOS development">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yakup Isik",
+      "jobTitle": "AI Developer and Psychoanalysis Researcher",
+      "url": "https://yakupisik.com",
+      "sameAs": [
+        "https://linkedin.com/in/yakupisik",
+        "https://github.com/yakupisik"
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Sabanci University",
+          "degree": "M.Sc. Information Technology"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Istanbul University",
+          "degree": "Psychology"
+        }
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Psychoanalysis",
+        "Software Development",
+        "Mental Health Technologies"
+      ]
+    }
+    </script>
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
         :root {
-            --bg-dark: #121212;
-            --text-primary: #e0e0e0;
-            --accent-color: #00f0b5;
-            --card-bg: #1e1e1e;
+            --glitch-color-1: #00ff41;
+            --glitch-color-2: #ff0055;
+            --background: #0a0a0a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
         }
 
         * {
@@ -19,98 +89,105 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
+        body, html {
+            height: 100%;
+            background: var(--background);
+            font-family: 'Space Mono', monospace;
+            cursor: none;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .navigator {
+        .cursor {
             position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 0 10px 10px 0;
-            padding: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--glitch-color-1);
+            mix-blend-mode: difference;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.1s ease;
         }
 
-        .navigator a {
-            display: block;
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--glitch-color-1);
+            mix-blend-mode: difference;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+
+        .glitch-container {
             position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
+            padding: 0 20px;
         }
 
-        .navigator a:hover {
-            background: var(--accent-color);
-            color: var(--bg-dark);
+        .glitch-text {
+            position: relative;
+            font-size: 10vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-align: center;
         }
 
-        .navigator a::before {
-            content: '';
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
             position: absolute;
             top: 0;
-            left: -100%;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: var(--accent-color);
-            transition: all 0.3s ease;
-            z-index: -1;
         }
 
-        .navigator a:hover::before {
-            left: 0;
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glitch-color-1);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
         }
 
-        .section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 50px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--glitch-color-2);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
         }
 
-        .section.active {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes glitch-anim {
+            0% { clip: rect(74px, 9999px, 54px, 0); }
+            25% { clip: rect(63px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(83px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
         }
 
-        #hero {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, #2c3e50 100%);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 10%;
+        @keyframes glitch-anim2 {
+            0% { clip: rect(84px, 9999px, 54px, 0); }
+            25% { clip: rect(53px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(93px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
         }
 
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            margin-bottom: 30px;
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
         }
 
         .project-grid {
@@ -120,182 +197,197 @@
         }
 
         .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glitch-color-1);
             padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
             transition: all 0.5s ease;
-            border: 2px solid transparent;
         }
 
-        .project-card:hover {
-            border-color: var(--accent-color);
-            transform: scale(1.05);
+        .project-card:hover::before {
+            left: 100%;
         }
 
-        .skill-cloud {
+        .project-card h3 {
+            color: var(--glitch-color-1);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+            gap: 10px;
         }
 
         .skill-tag {
-            background: var(--card-bg);
-            color: var(--text-primary);
-            padding: 10px 20px;
+            background: rgba(0,255,65,0.1);
+            color: var(--glitch-color-1);
+            padding: 5px 10px;
             border-radius: 20px;
-            transition: all 0.3s ease;
+            font-size: 0.8rem;
         }
 
-        .skill-tag:hover {
-            background: var(--accent-color);
-            color: var(--bg-dark);
+        .interactive-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
         }
 
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            background: var(--card-bg);
-            border: none;
+        .menu-item {
             color: var(--text-primary);
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--bg-dark);
-            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 1rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,240,181,0.4);
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--glitch-color-1);
+            transition: width 0.3s ease;
+        }
+
+        .menu-item:hover::after {
+            width: 100%;
+        }
+
+        .subheading {
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.2rem;
         }
 
         @media (max-width: 768px) {
-            .navigator {
-                display: none;
+            .glitch-text {
+                font-size: 15vw;
             }
 
-            #hero {
-                flex-direction: column;
-                text-align: center;
+            .interactive-menu {
+                position: static;
+                justify-content: center;
+                margin-top: 20px;
+                background: rgba(10,10,10,0.8);
+                padding: 15px;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .project-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navigator">
-        <a href="#hero">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="interactive-menu">
+        <a href="#home" class="menu-item">Home</a>
+        <a href="#projects" class="menu-item">Projects</a>
+        <a href="#about" class="menu-item">About</a>
+        <a href="#contact" class="menu-item">Contact</a>
     </nav>
 
-    <section id="hero" class="section active">
-        <div class="hero-content">
-            <h1>Yakup Isik</h1>
-            <p>Tech Innovator | Psychoanalysis Meets Code | Bridging Human Insight with Artificial Intelligence</p>
-            <a href="#projects" class="cta-button">Explore My Work</a>
-        </div>
-        <div class="hero-visual">
-            <!-- Could be an SVG, animated element, or creative visual representation -->
+    <section id="home" class="glitch-container">
+        <div>
+            <h1 class="glitch-text" data-text="Yakup Isik">Yakup Isik</h1>
+            <p class="subheading">Bridging Psychoanalysis and Technology | AI Innovator | Full-Stack Developer</p>
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Innovative Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Motivo</h3>
-                    <p>AI-Powered Psychoanalytic Quote Generator</p>
-                    <div class="project-tags">
-                        <span class="skill-tag">iOS</span>
-                        <span class="skill-tag">SwiftUI</span>
-                    </div>
+    <section id="projects" class="content-section">
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Motivo</h3>
+                <p>AI-Powered Psychoanalytic Quote Generator exploring the intersection of mental health and artificial intelligence.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">iOS</span>
+                    <span class="skill-tag">SwiftUI</span>
+                    <span class="skill-tag">AI</span>
                 </div>
-                <div class="project-card">
-                    <h3>Mindful Reflections</h3>
-                    <p>GPT-4 Powered Mental Health Web App</p>
-                    <div class="project-tags">
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">AI</span>
-                    </div>
+            </div>
+            <div class="project-card">
+                <h3>Mindful Reflections</h3>
+                <p>GPT-4 Powered Mental Health Web Application providing personalized psychological insights through advanced AI technologies.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">AI</span>
                 </div>
-                <div class="project-card">
-                    <h3>AI Therapy Assistant</h3>
-                    <p>Natural Language Processing Therapy Tool</p>
-                    <div class="project-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">GPT-4</span>
-                    </div>
+            </div>
+            <div class="project-card">
+                <h3>AI Therapy Assistant</h3>
+                <p>Cutting-edge Natural Language Processing tool designed to provide nuanced, empathetic digital mental health support.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">GPT-4</span>
+                    <span class="skill-tag">NLP</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Tech Ecosystem</h2>
-            <div class="skill-cloud">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Django</span>
-                <span class="skill-tag">SwiftUI</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">GPT-4</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Next.js</span>
+    <section id="about" class="content-section">
+        <div class="project-card">
+            <h3>About Me</h3>
+            <p>I'm a unique professional bridging the worlds of psychoanalysis and technology. With a background in psychology and a passion for software development, I create innovative AI-driven solutions that explore the depths of human experience.</p>
+            <div class="skill-tags">
+                <span class="skill-tag">Psychology</span>
+                <span class="skill-tag">Software Development</span>
+                <span class="skill-tag">AI Research</span>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Connect</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
         </div>
     </section>
 
     <script>
-        // Simple scroll-based section reveal
-        const sections = document.querySelectorAll('.section');
-        const options = {
-            threshold: 0.1
-        };
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        // Interactive hover effects
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(3)';
             });
-        }, options);
-
-        sections.forEach(section => {
-            observer.observe(section);
+            card.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
         });
     </script>
 </body>
