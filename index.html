@@ -48,7 +48,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
         }
 
         body, html {
@@ -59,29 +58,39 @@
             overflow-x: hidden;
         }
 
+        /* Cursor Styles */
         .cursor {
             position: fixed;
             width: 20px;
             height: 20px;
             border: 2px solid var(--glitch-color-1);
             border-radius: 50%;
-            transform: translate(-50%, -50%);
             pointer-events: none;
             z-index: 9999;
+            transform: translate(-50%, -50%);
             transition: 
                 width 0.2s ease, 
                 height 0.2s ease, 
                 border-color 0.3s ease,
                 transform 0.1s ease;
+            mix-blend-mode: difference;
         }
 
-        .cursor.active {
+        .cursor.hover {
             width: 40px;
             height: 40px;
             border-color: var(--glitch-color-2);
         }
 
-        /* Rest of the previous styles remain the same */
+        body { 
+            cursor: none; 
+        }
+
+        a, .interactive, .menu-item, .social-link {
+            cursor: none !important;
+        }
+
+        /* Existing styles from previous portfolio */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -361,17 +370,12 @@
     </section>
 
     <script>
-        // Advanced Cursor Interaction
+        // Cursor Interaction
         const cursor = document.querySelector('.cursor');
-        let mouseX = 0, mouseY = 0;
-
+        
         // Update mouse position
         document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Move cursor
-            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
 
         // Interactive elements
@@ -379,11 +383,11 @@
         
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursor.classList.add('active');
+                cursor.classList.add('hover');
             });
             
             el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('active');
+                cursor.classList.remove('hover');
             });
         });
     </script>
