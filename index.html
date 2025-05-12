@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Yakup Isik | AI & Psychology | Full-Stack Ios and Web</title>
-    <meta name="title" content="Yakup Isik | AI & Psychology Innovator | Full-Stack Developer">
-    <meta name="description" content="Pioneering the intersection of psychoanalysis and technology. Creating AI-driven mental health solutions, full-stack applications, and innovative digital experiences.">
+    <title>Yakup Isik | AI, Psychology & iOS Developer</title>
+    <meta name="title" content="Yakup Isik | AI, Psychology & iOS Developer">
+    <meta name="description" content="Pioneering the intersection of psychoanalysis and technology. Creating AI-driven mental health solutions, iOS applications, and innovative digital experiences.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://psyche.solutions">
-    <meta property="og:title" content="Yakup Isik | AI & Psychology Innovator">
-    <meta property="og:description" content="Bridging psychology and technology through innovative AI-powered solutions. Explore cutting-edge projects in mental health technology.">
+    <meta property="og:title" content="Yakup Isik | AI, Psychology & iOS Developer">
+    <meta property="og:description" content="Bridging psychology and technology through innovative AI-powered solutions and iOS development. Explore cutting-edge projects in mental health technology.">
     <meta property="og:image" content="https://psyche.solutions/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://psyche.solutions/">
-    <meta property="twitter:title" content="Yakup Isik | AI & Psychology Innovator">
-    <meta property="twitter:description" content="Pioneering AI-driven mental health technologies. Full-stack developer merging psychology and cutting-edge software solutions.">
+    <meta property="twitter:title" content="Yakup Isik | AI, Psychology & iOS Developer">
+    <meta property="twitter:description" content="Pioneering AI-driven mental health technologies and iOS development. Full-stack developer merging psychology and cutting-edge software solutions.">
     <meta property="twitter:image" content="https://psyche.solutions/">
 
     <!-- Robots and Canonical -->
@@ -42,6 +42,7 @@
             --background: #0a0a0a;
             --text-primary: #f0f0f0;
             --text-secondary: #a0a0a0;
+            --card-bg: rgba(15, 15, 15, 0.95);
         }
 
         * {
@@ -56,6 +57,7 @@
             font-family: 'Space Mono', monospace;
             line-height: 1.6;
             overflow-x: hidden;
+            color: var(--text-primary);
         }
 
         /* Cursor Styles */
@@ -71,7 +73,7 @@
             transition:
                 width 0.2s ease,
                 height 0.2s ease,
-                border-color 0.3s ease; /* Removed the transform transition */
+                border-color 0.3s ease; 
             mix-blend-mode: difference;
         }
 
@@ -89,11 +91,31 @@
             cursor: none !important;
         }
 
-        /* Existing styles from previous portfolio */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
             padding: 50px 20px;
+        }
+
+        .section-title {
+            color: var(--glitch-color-1);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--glitch-color-1);
+            bottom: -10px;
+            left: 25%;
         }
 
         .project-grid {
@@ -103,13 +125,14 @@
         }
 
         .project-card {
-            background: rgba(255,255,255,0.05);
+            background: var(--card-bg);
             border: 1px solid var(--glitch-color-1);
             padding: 30px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
         }
 
         .project-card::before {
@@ -119,8 +142,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: all 0.5s ease;
+            background: linear-gradient(120deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            transition: all 0.8s ease;
         }
 
         .project-card:hover::before {
@@ -142,14 +165,16 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 15px;
         }
 
         .skill-tag {
-            background: rgba(0,255,65,0.1);
+            background: rgba(0, 255, 65, 0.1);
             color: var(--glitch-color-1);
             padding: 5px 10px;
             border-radius: 20px;
             font-size: 0.8rem;
+            border: 1px solid rgba(0, 255, 65, 0.3);
         }
 
         .interactive-menu {
@@ -271,6 +296,99 @@
             transform: scale(1.2);
         }
 
+        /* Resume Section */
+        .resume-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resume-item {
+            border-left: 3px solid var(--glitch-color-1);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .resume-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--glitch-color-1);
+            left: -9px;
+            top: 5px;
+        }
+
+        .resume-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .resume-item .date {
+            color: var(--glitch-color-2);
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .resume-item .organization {
+            color: var(--glitch-color-1);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .resume-item p {
+            color: var(--text-secondary);
+        }
+
+        .resume-item ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        .resume-item li {
+            margin-bottom: 5px;
+        }
+
+        .download-cv {
+            display: inline-block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid var(--glitch-color-1);
+            color: var(--glitch-color-1);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .download-cv:hover {
+            background: var(--glitch-color-1);
+            color: var(--background);
+        }
+
+        .download-cv::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .download-cv:hover::before {
+            left: 100%;
+        }
         
         @media (hover: none) and (pointer: coarse) {
             .cursor {
@@ -278,7 +396,7 @@
             }
 
             body {
-                cursor: auto; /* Revert to the default touch cursor if any */
+                cursor: auto;
             }
 
             a, .interactive, .menu-item, .social-link {
@@ -297,10 +415,9 @@
             }
 
             .interactive-menu {
-                display: none; /* Hide the original menu */
+                display: none;
             }
 
-            /* Style for the hamburger menu button */
             .hamburger {
                 position: fixed;
                 top: 20px;
@@ -314,7 +431,7 @@
                 border: none;
                 cursor: pointer;
                 padding: 0;
-                z-index: 1001; /* Ensure it's above other elements */
+                z-index: 1001;
             }
 
             .hamburger-line {
@@ -324,14 +441,13 @@
                 transition: all 0.3s ease-in-out;
             }
 
-            /* Style for the expanded menu (initially hidden) */
             .mobile-menu {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(10, 10, 10, 0.95); /* Dark background */
+                background-color: rgba(10, 10, 10, 0.95);
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -369,6 +485,10 @@
                 width: 100%;
                 left: 0;
             }
+
+            .resume-item {
+                padding-left: 15px;
+            }
         }
     </style>
 </head>
@@ -384,6 +504,7 @@
     <nav class="interactive-menu">
         <a href="#home" class="menu-item">Home</a>
         <a href="#projects" class="menu-item">Projects</a>
+        <a href="#experience" class="menu-item">Experience</a>
         <a href="#about" class="menu-item">About</a>
         <a href="#contact" class="menu-item">Contact</a>
     </nav>
@@ -391,6 +512,7 @@
     <nav class="mobile-menu">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -398,66 +520,146 @@
     <section id="home" class="glitch-container">
         <div>
             <h1 class="glitch-text" data-text="Yakup Isik">Yakup Isik</h1>
-            <p class="subheading">Bridging Psychoanalysis and Technology | AI & Psychology | Full-Stack IOS and Web Developer</p>
+            <p class="subheading">Bridging Psychoanalysis and Technology | AI & Psychology | iOS & Full-Stack Developer</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/TechPsychee" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:yakob.isik0@gmail.com" class="social-link">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <section id="projects" class="content-section">
+        <h2 class="section-title">Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>Motivo</h3>
-                <p>AI-Powered Psychoanalytic Quote Generator exploring the intersection of mental health and artificial intelligence.</p>
+                <h3>ColorFinder</h3>
+                <p>A native iOS application that analyzes images to identify and extract dominant color palettes, providing a tool for designers and visual creators.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">iOS</span>
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">UIKit</span>
+                    <span class="skill-tag">Core ML</span>
+                    <span class="skill-tag">Core Image</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>MyQuote</h3>
+                <p>An iOS application delivering daily insights and life lessons based on psychoanalytic theory, bridging my background in psychology with modern mobile development.</p>
                 <div class="skill-tags">
                     <span class="skill-tag">iOS</span>
                     <span class="skill-tag">SwiftUI</span>
-                    <span class="skill-tag">AI</span>
+                    <span class="skill-tag">CloudKit</span>
+                    <span class="skill-tag">Psychoanalysis</span>
                 </div>
             </div>
             <div class="project-card">
                 <h3>Mindful Reflections</h3>
-                <p>GPT-4 Powered Mental Health Web Application providing personalized psychological insights through advanced AI technologies.</p>
+                <p>An ongoing Project, GPT-4 Powered Mental Health Web Application providing personalized psychological insights through advanced AI technologies.</p>
                 <div class="skill-tags">
                     <span class="skill-tag">Django</span>
                     <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">AI</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>AI Therapy Assistant</h3>
-                <p>Cutting-edge Natural Language Processing tool designed to provide nuanced, empathetic digital mental health support.</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">Auth0</span>
                     <span class="skill-tag">GPT-4</span>
-                    <span class="skill-tag">NLP</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="experience" class="content-section">
+        <h2 class="section-title">Experience</h2>
+        <div class="resume-section">
+            <div class="resume-item">
+                <h3>Section Leader at Code in Place</h3>
+                <div class="date">Spring 2025</div>
+                <div class="organization">Stanford University</div>
+                <p>Will lead a section of students learning Python programming fundamentals in this Stanford-led global coding education initiative.</p>
+            </div>
+            
+            <div class="resume-item">
+                <h3>iOS Developer</h3>
+                <div class="date">2023 - Present</div>
+                <div class="organization">Freelance</div>
+                <ul>
+                    <li>Developed <strong>ColorFinder</strong>: A native iOS app that analyzes images to identify and extract dominant color palettes.</li>
+                    <li>Created <strong>MyQuote</strong>: An iOS application delivering daily insights and life lessons based on psychoanalytic theory.</li>
+                    <li>Technologies used: Swift, UIKit, Core ML, Core Image, UserDefaults, CloudKit, SwiftUI.</li>
+                </ul>
+            </div>
+            
+            <div class="resume-item">
+                <h3>Graduate Project: Mindful Reflections</h3>
+                <div class="date">2024</div>
+                <div class="organization">Sabanci University</div>
+                <p>Developed an AI-driven mental health web application using GPT-4 for personalized support.</p>
+                <p><strong>Key Features:</strong> Real-time chat (Django channels), Auth0 for secure authentication, PostgreSQL, Redis.</p>
+            </div>
+            
+            <div class="resume-item">
+                <h3>Freelance Software Developer</h3>
+                <div class="date">January 2023 - Present</div>
+                <p>Creating an LLM-based mental health assistant leveraging GPT-4.</p>
+                <p><strong>Additional Work:</strong> Library & course management systems (Spring Boot), engaging user experiences (Jakarta).</p>
+            </div>
+            
+            <div class="resume-item">
+                <h3>Psychotherapist in Private Practice</h3>
+                <div class="date">August 2016 - June 2023</div>
+                <p>Specialized in trauma, loss, and affective disorders through psychodynamic therapy. Partnered with non-profits to expand access to mental health services.</p>
+            </div>
+            
+            <div class="resume-item">
+                <h3>OpenAI Researcher Access Program Grant</h3>
+                <div class="date">2024</div>
+                <p>Received $3000 in credits for GPT-4 API usage to further mental health research and applications.</p>
+            </div>
+            
+            <a href="#contact" class="download-cv">Request Full CV</a>
+        </div>
+    </section>
+
     <section id="about" class="content-section">
+        <h2 class="section-title">About Me</h2>
         <div class="project-card">
-            <h3>About Me</h3>
-            <p>I'm a unique professional bridging the worlds of psychoanalysis and technology. With a background in psychology and a passion for software development, I create innovative AI-driven solutions that explore the depths of human experience.</p>
+            <p>I'm a unique professional bridging the worlds of psychoanalysis and technology. With a background in clinical psychology and a passion for software development, I create innovative AI-driven solutions that explore the depths of human experience.</p>
+            <p>My educational journey spans from a Bachelor's in Psychology and a Master's in Forensic Sciences from Istanbul University to my recent M.Sc. in Information Technology from Sabanci University, where I specialized in software engineering, database management, and cloud computing.</p>
+            <p>I'm fluent in Kurdish, Turkish, and English, with a working knowledge of German (B1), allowing me to connect with diverse communities and perspectives.</p>
             <div class="skill-tags">
+                <span class="skill-tag">iOS Development</span>
+                <span class="skill-tag">Python</span>
                 <span class="skill-tag">Psychology</span>
-                <span class="skill-tag">Software Development</span>
-                <span class="skill-tag">AI Research</span>
+                <span class="skill-tag">AI Integration</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Swift</span>
+                <span class="skill-tag">Mental Health</span>
+                <span class="skill-tag">Web Development</span>
             </div>
         </div>
     </section>
 
     <section id="contact" class="content-section">
+        <h2 class="section-title">Connect With Me</h2>
         <div class="project-card">
-            <h3>Connect With Me</h3>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to contact me through any of the platforms below.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank" class="social-link">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://medium.com/@techpsychee" target="_blank" class="social-link">
-                    <i class="fab fa-medium"></i>
-                </a>
                 <a href="https://github.com/TechPsychee" target="_blank" class="social-link">
                     <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:yakob.isik0@gmail.com" class="social-link">
+                    <i class="far fa-envelope"></i>
+                </a>
+                <a href="tel:+905426864692" class="social-link">
+                    <i class="fas fa-phone"></i>
                 </a>
             </div>
         </div>
@@ -468,7 +670,7 @@
         document.addEventListener('mousemove', (e) => {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
-        const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link');
+        const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link, .download-cv');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('hover');
@@ -484,15 +686,24 @@
 
         hamburger.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
-            hamburger.classList.toggle('open'); // You might want to add a visual state to the hamburger too
         });
 
-        // Close Mobile Menu on Link Click (optional)
+        // Close Mobile Menu on Link Click
         const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
         mobileMenuItems.forEach(item => {
             item.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
-                hamburger.classList.remove('open'); // If you added an 'open' class to the hamburger
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
