@@ -580,7 +580,7 @@
                 <h3>Section Leader at Code in Place</h3>
                 <div class="date">Spring 2025</div>
                 <div class="organization">Stanford University</div>
-                <p>Will lead a section of students learning Python programming fundamentals in this Stanford-led global coding education initiative.</p>
+                <p> leading a section of students learning Python programming fundamentals in this Stanford-led global coding education initiative.</p>
             </div>
             
             <div class="resume-item">
@@ -666,46 +666,49 @@
     </section>
 
     <script>
-        const cursor = document.querySelector('.cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            // Custom cursor effect
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+    
+    // Hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link, .download-cv');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
         });
-        const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link, .download-cv');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-            });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
         });
+    });
 
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const mobileMenu = document.querySelector('.mobile-menu');
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+    });
+
+    // Close Mobile Menu on Link Click
+    const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
+    mobileMenuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
         });
+    });
 
-        // Close Mobile Menu on Link Click
-        const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
-        mobileMenuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    });
     </script>
 </body>
 </html>
