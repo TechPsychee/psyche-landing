@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Yakup Isik | AI, Psychology & iOS Developer</title>
-    <meta name="title" content="Yakup Isik | AI, Psychology & iOS Developer">
+    <title>Psyche Solutions | AI, Psychology & iOS Development</title>
+    
+    <meta name="title" content="Psyche Solutions| AI, Psychology & iOS Developer">
     <meta name="description" content="Pioneering the intersection of psychoanalysis and technology. Creating AI-driven mental health solutions, iOS applications, and innovative digital experiences.">
 
     <!-- Open Graph / Facebook -->
@@ -31,10 +32,7 @@
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
     <!-- Font Awesome for Social Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-          integrity="sha384-<your-integrity-hash>"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
@@ -89,7 +87,91 @@
         body { cursor: none; }
         a, .interactive, .menu-item, .social-link { cursor: none !important; }
 
-        /* … your other styles (glitch, cards, resume, etc.) unchanged … */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            color: var(--glitch-color-1);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--glitch-color-1);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glitch-color-1);
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            transition: all 0.8s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card h3 {
+            color: var(--glitch-color-1);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--glitch-color-1);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
 
         /* Desktop Navigation Menu */
         .interactive-menu {
@@ -100,6 +182,7 @@
             gap: 20px;
             z-index: 1000;
         }
+        
         .menu-item {
             color: var(--text-primary);
             text-decoration: none;
@@ -107,6 +190,7 @@
             transition: color 0.3s ease;
             font-size: 1rem;
         }
+        
         .menu-item::after {
             content: '';
             position: absolute;
@@ -117,8 +201,204 @@
             background-color: var(--glitch-color-1);
             transition: width 0.3s ease;
         }
+        
         .menu-item:hover::after {
             width: 100%;
+        }
+
+        .glitch-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        .glitch-text {
+            position: relative;
+            font-size: 10vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glitch-color-1);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -5px;
+            text-shadow: -5px 0 var(--glitch-color-2);
+            clip: rect(70px, 450px, 85px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(74px, 9999px, 54px, 0); }
+            25% { clip: rect(63px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(83px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(84px, 9999px, 54px, 0); }
+            25% { clip: rect(53px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(93px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
+        }
+
+        .subheading {
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            font-size: 1.2rem;
+        }
+
+        /* Social Links Styles */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            color: var(--glitch-color-1);
+            font-size: 2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--glitch-color-2);
+            transform: scale(1.2);
+        }
+
+        /* Resume Section */
+        .resume-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resume-item {
+            border-left: 3px solid var(--glitch-color-1);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .resume-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--glitch-color-1);
+            left: -9px;
+            top: 5px;
+        }
+
+        .resume-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .resume-item .date {
+            color: var(--glitch-color-2);
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .resume-item .organization {
+            color: var(--glitch-color-1);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .resume-item p {
+            color: var(--text-secondary);
+        }
+
+        .resume-item ul {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        .resume-item li {
+            margin-bottom: 5px;
+        }
+
+        .download-cv {
+            display: inline-block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background: transparent;
+            border: 2px solid var(--glitch-color-1);
+            color: var(--glitch-color-1);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .download-cv:hover {
+            background: var(--glitch-color-1);
+            color: var(--background);
+        }
+
+        .download-cv::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .download-cv:hover::before {
+            left: 100%;
+        }
+        
+        @media (hover: none) and (pointer: coarse) {
+            .cursor {
+                display: none;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            a, .interactive, .menu-item, .social-link {
+                cursor: auto !important;
+            }
         }
 
         /* Hamburger Menu for Smaller Screens */
@@ -127,22 +407,31 @@
         }
 
         @media (max-width: 768px) {
+            .glitch-text {
+                font-size: 15vw;
+            }
+
             /* Hide desktop menu */
-            .interactive-menu { display: none; }
+            .interactive-menu { 
+                display: none; 
+            }
 
             /* Show hamburger */
             .hamburger {
                 display: flex;
                 position: fixed;
-                top: 20px; right: 20px;
+                top: 20px; 
+                right: 20px;
                 flex-direction: column;
                 justify-content: space-around;
-                width: 30px; height: 21px;
+                width: 30px; 
+                height: 21px;
                 background: transparent;
                 border: none;
                 cursor: pointer;
                 z-index: 1001;
             }
+            
             .hamburger-line {
                 width: 100%;
                 height: 3px;
@@ -154,8 +443,10 @@
             .mobile-menu {
                 display: flex;
                 position: fixed;
-                top: 0; left: 0;
-                width: 100%; height: 100%;
+                top: 0; 
+                left: 0;
+                width: 100%; 
+                height: 100%;
                 background-color: rgba(10, 10, 10, 0.95);
                 flex-direction: column;
                 justify-content: center;
@@ -166,26 +457,37 @@
                 visibility: hidden;
                 transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
             }
+            
             .mobile-menu.open {
                 opacity: 1;
                 visibility: visible;
             }
+            
             .mobile-menu a {
                 color: var(--text-primary);
                 text-decoration: none;
                 font-size: 1.5rem;
                 position: relative;
             }
+            
             .mobile-menu a::after {
                 content: '';
                 position: absolute;
-                width: 0; height: 2px;
-                bottom: -5px; left: 50%;
+                width: 0; 
+                height: 2px;
+                bottom: -5px; 
+                left: 50%;
                 background-color: var(--glitch-color-1);
                 transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
             }
+            
             .mobile-menu a:hover::after {
-                width: 100%; left: 0;
+                width: 100%; 
+                left: 0;
+            }
+
+            .resume-item {
+                padding-left: 15px;
             }
         }
     </style>
@@ -218,11 +520,10 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- … the rest of your content and scripts unchanged … -->
     <section id="home" class="glitch-container">
         <div>
-            <h1 class="glitch-text" data-text="Yakup Isik">Yakup Isik</h1>
-            <p class="subheading">Bridging Psychoanalysis and Technology | AI & Psychology | iOS & Full-Stack Developer</p>
+            <h1 class="glitch-text" data-text="Yakup Isik">Psyche Solutions</h1>
+            <p class="subheading"> by Yakup ISIK | Bridging Psychoanalysis and Technology | AI & Psychology | iOS & Full-Stack Developer</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank" class="social-link">
                     <i class="fab fa-linkedin"></i>
@@ -263,13 +564,23 @@
             </div>
             <div class="project-card">
                 <h3>Mindful Reflections</h3>
-                <p>An ongoing Project, GPT-4 Powered Mental Health Web Application providing personalized psychological insights through advanced AI technologies.</p>
+                <p>GPT-4 Powered Mental Health Web Application providing personalized psychological insights through advanced AI technologies.</p>
                 <div class="skill-tags">
                     <span class="skill-tag">Django</span>
                     <span class="skill-tag">PostgreSQL</span>
                     <span class="skill-tag">Redis</span>
                     <span class="skill-tag">Auth0</span>
                     <span class="skill-tag">GPT-4</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>LLM Mental Health Assistant</h3>
+                <p>Creating an AI-driven therapy assistant leveraging GPT-4 for nuanced, empathetic digital mental health support.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">GPT-4</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Mental Health</span>
                 </div>
             </div>
         </div>
@@ -282,7 +593,7 @@
                 <h3>Section Leader at Code in Place</h3>
                 <div class="date">Spring 2025</div>
                 <div class="organization">Stanford University</div>
-                <p> leading a section of students learning Python programming fundamentals in this Stanford-led global coding education initiative.</p>
+                <p>Will lead a section of students learning Python programming fundamentals in this Stanford-led global coding education initiative.</p>
             </div>
             
             <div class="resume-item">
@@ -368,49 +679,49 @@
     </section>
 
     <script>
-            // Custom cursor effect
-    const cursor = document.querySelector('.cursor');
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    });
-    
-    // Hover effect for interactive elements
-    const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link, .download-cv');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
+        // Custom cursor effect
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
         });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-        });
-    });
-
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-    });
-
-    // Close Mobile Menu on Link Click
-    const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
-    mobileMenuItems.forEach(item => {
-        item.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-        });
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        
+        // Hover effect for interactive elements
+        const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link, .download-cv');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
             });
         });
-    });
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close Mobile Menu on Link Click
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
