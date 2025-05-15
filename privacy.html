@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Privacy Policy | OneQ | Psyche Solutions</title>
+    
+    <meta name="title" content="Privacy Policy | OneQ | Psyche Solutions">
+    <meta name="description" content="Privacy Policy for OneQ, a daily journaling app that inspires reflection through thoughtful questions.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+        :root {
+            --glitch-color-1: #00ff41;
+            --glitch-color-2: #ff0055;
+            --background: #0a0a0a;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --card-bg: rgba(15, 15, 15, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background: var(--background);
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            color: var(--text-primary);
+        }
+
+        /* Hide mobile menu on desktop */
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Cursor Styles */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--glitch-color-1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, border-color 0.3s ease;
+            mix-blend-mode: difference;
+        }
+        .cursor.hover {
+            width: 40px;
+            height: 40px;
+            border-color: var(--glitch-color-2);
+        }
+        body { cursor: none; }
+        a, .interactive, .menu-item, .social-link { cursor: none !important; }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            color: var(--glitch-color-1);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--glitch-color-1);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        /* Desktop Navigation Menu */
+        .interactive-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+        
+        .menu-item {
+            color: var(--text-primary);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--glitch-color-1);
+            transition: width 0.3s ease;
+        }
+        
+        .menu-item:hover::after {
+            width: 100%;
+        }
+
+        .header-container {
+            position: relative;
+            width: 100%;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsIDI1NSwgNjUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==');
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        .header-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title::before,
+        .header-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header-title::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--glitch-color-1);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .header-title::after {
+            left: -5px;
+            text-shadow: -5px 0 var(--glitch-color-2);
+            clip: rect(70px, 450px, 85px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(74px, 9999px, 54px, 0); }
+            25% { clip: rect(63px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(83px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(84px, 9999px, 54px, 0); }
+            25% { clip: rect(53px, 9999px, 73px, 0); }
+            50% { clip: rect(44px, 9999px, 56px, 0); }
+            75% { clip: rect(93px, 9999px, 54px, 0); }
+            100% { clip: rect(64px, 9999px, 74px, 0); }
+        }
+
+        .privacy-policy {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .privacy-policy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(0, 255, 65, 0.03), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            to {
+                left: 100%;
+            }
+        }
+
+        .privacy-policy h2 {
+            color: var(--glitch-color-1);
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .privacy-policy h2::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background-color: var(--glitch-color-1);
+            bottom: -5px;
+            left: 0;
+        }
+
+        .privacy-policy p, .privacy-policy ul, .privacy-policy ol {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .privacy-policy ul, .privacy-policy ol {
+            padding-left: 25px;
+        }
+
+        .privacy-policy li {
+            margin-bottom: 10px;
+        }
+
+        .privacy-policy strong {
+            color: var(--text-primary);
+        }
+
+        .privacy-policy a {
+            color: var(--glitch-color-1);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .privacy-policy a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -1px;
+            left: 0;
+            background-color: var(--glitch-color-1);
+            transition: width 0.3s ease;
+        }
+
+        .privacy-policy a:hover::after {
+            width: 100%;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin: 40px auto;
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid var(--glitch-color-1);
+            color: var(--glitch-color-1);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .back-to-home:hover {
+            background: var(--glitch-color-1);
+            color: var(--background);
+        }
+
+        .back-to-home i {
+            margin-right: 10px;
+        }
+
+        .updated-date {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        /* Hamburger Menu for Smaller Screens */
+        .hamburger {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .privacy-policy {
+                padding: 25px;
+            }
+
+            /* Hide desktop menu */
+            .interactive-menu { 
+                display: none; 
+            }
+
+            /* Show hamburger */
+            .hamburger {
+                display: flex;
+                position: fixed;
+                top: 20px; 
+                right: 20px;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 30px; 
+                height: 21px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .hamburger-line {
+                width: 100%;
+                height: 3px;
+                background-color: var(--text-primary);
+                transition: all 0.3s ease-in-out;
+            }
+
+            /* Reveal mobile menu */
+            .mobile-menu {
+                display: flex;
+                position: fixed;
+                top: 0; 
+                left: 0;
+                width: 100%; 
+                height: 100%;
+                background-color: rgba(10, 10, 10, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            }
+            
+            .mobile-menu.open {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .mobile-menu a {
+                color: var(--text-primary);
+                text-decoration: none;
+                font-size: 1.5rem;
+                position: relative;
+            }
+            
+            .mobile-menu a::after {
+                content: '';
+                position: absolute;
+                width: 0; 
+                height: 2px;
+                bottom: -5px; 
+                left: 50%;
+                background-color: var(--glitch-color-1);
+                transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+            }
+            
+            .mobile-menu a:hover::after {
+                width: 100%; 
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <div class="logo" style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+        <a href="index.html">
+            <img src="logo.png" alt="Psyche Solutions Logo" width="40" height="40">
+        </a>
+    </div>
+
+    <!-- Hamburger button for mobile -->
+    <button class="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+
+    <!-- Desktop Navigation Menu -->
+    <nav class="interactive-menu">
+        <a href="index.html" class="menu-item">Home</a>
+        <a href="index.html#projects" class="menu-item">Projects</a>
+        <a href="terms.html" class="menu-item">Terms</a>
+        <a href="privacy.html" class="menu-item">Privacy</a>
+        <a href="index.html#contact" class="menu-item">Contact</a>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <nav class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <header class="header-container">
+        <h1 class="header-title" data-text="Privacy Policy">Privacy Policy</h1>
+    </header>
+
+    <section class="content-section">
+        <div class="privacy-policy">
+            <p>Last Updated: May 15, 2025</p>
+            
+            <h2>Introduction</h2>
+            <p>Welcome to OneQ ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application OneQ (the "App").</p>
+            
+            <p>Please read this Privacy Policy carefully. By installing, accessing, or using the App, you acknowledge that you have read, understood, and agree to be bound by the terms of this Privacy Policy. If you do not agree with our policies and practices, please do not use our App.</p>
+            
+            <h2>Information We Collect</h2>
+            
+            <h3>Data You Provide to Us</h3>
+            <ul>
+                <li><strong>Journal Entries:</strong> The content you create when answering daily questions.</li>
+                <li><strong>User Preferences:</strong> Settings such as notification preferences, dark/light mode selection, and other customization options.</li>
+                <li><strong>In-App Purchase Information:</strong> If you subscribe to premium features, we process information about your subscription status (handled through Apple's payment system).</li>
+            </ul>
+            
+            <h3>Data Collected Automatically</h3>
+            <ul>
+                <li><strong>Device Information:</strong> Basic data about your mobile device (model, operating system version, unique device identifiers).</li>
+                <li><strong>App Usage Data:</strong> Information about how you interact with the App (features used, time spent, actions taken).</li>
+                <li><strong>Crash Reports:</strong> Data that helps us identify and fix errors in the App.</li>
+            </ul>
+            
+            <h2>How Your Information is Stored</h2>
+            <p>Your privacy is our priority:</p>
+            <ul>
+                <li><strong>Local Storage:</strong> The majority of your data, including all journal entries, is stored locally on your device. This means your personal reflections stay private to you.</li>
+                <li><strong>Cloud Backup (Optional):</strong> If you enable iCloud backup, your journal entries will be synced across your devices via your iCloud account. This data is protected by Apple's security measures and is not directly accessible to us.</li>
+                <li><strong>Analytics Data:</strong> Non-personal, aggregated usage data may be stored on our secure servers to help us improve the App.</li>
+            </ul>
+            
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide the core functionality of the App (displaying daily questions, storing your responses).</li>
+                <li>Personalize your experience (such as selecting questions relevant to your interests).</li>
+                <li>Improve and optimize the App based on user feedback and usage patterns.</li>
+                <li>Process subscriptions and provide access to premium features.</li>
+                <li>Send notifications (if you opt-in to receive them).</li>
+                <li>Respond to your inquiries or support requests.</li>
+                <li>Protect the security and integrity of our App.</li>
+            </ul>
+            
+            <h2>Information Sharing and Disclosure</h2>
+            <p>We respect your privacy and do not sell or rent your personal information. We may share information in the following limited circumstances:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> We may engage trusted third-party companies to perform services on our behalf (analytics, app performance monitoring, etc.).</li>
+                <li><strong>Legal Requirements:</strong> We may disclose information if required by law or in response to valid requests from public authorities.</li>
+                <li><strong>Business Transfers:</strong> If we are involved in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</li>
+                <li><strong>With Your Consent:</strong> We may share information with your consent or at your direction.</li>
+            </ul>
+            
+            <h2>Analytics</h2>
+            <p>We use analytics tools to help us understand how users engage with our App. These tools collect information such as how often you use the App, what pages you visit, and what features you use. This helps us improve our App and provide a better user experience.</p>
+            
+            <h2>Your Choices and Rights</h2>
+            <p>You have several rights and choices regarding your personal information:</p>
+            <ul>
+                <li><strong>Access and Update:</strong> You can access and update your information directly within the App settings.</li>
+                <li><strong>Delete:</strong> You can delete your journal entries at any time from within the App.</li>
+                <li><strong>Notifications:</strong> You can choose whether to receive notifications in your device settings or the App settings.</li>
+                <li><strong>Data Portability:</strong> You can export your journal entries from the App (available in settings).</li>
+                <li><strong>Account Deletion:</strong> Since the App primarily stores data locally, uninstalling the App will remove most of your data. For any cloud-stored information, please contact us at privacy@psyche.solutions.</li>
+            </ul>
+            
+            <h2>Data Security</h2>
+            <p>We implement appropriate technical and organizational measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+            
+            <h2>Children's Privacy</h2>
+            <p>Our App is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information.</p>
+            
+            <h2>International Data Transfers</h2>
+            <p>Your information may be transferred to, and maintained on, computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those in your jurisdiction. If you are located outside the United States and choose to provide information to us, please note that we transfer the information to the United States and process it there.</p>
+            
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+            <p>Email: privacy@psyche.solutions</p>
+            <p>Psyche Solutions<br>
+            Istanbul, Turkey</p>
+        </div>
+        
+        <div class="updated-date">Last Updated: May 15, 2025</div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </section>
+
+    <script>
+        // Custom cursor effect
+        const cursor = document.querySelector('.cursor');
+        if (window.matchMedia("(pointer: fine)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+            
+            // Hover effect for interactive elements
+            const interactiveElements = document.querySelectorAll('a, .menu-item, .social-link, .back-to-home');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+            });
+        } else {
+            cursor.style.display = 'none';
+        }
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close Mobile Menu on Link Click
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
+        mobileMenuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
