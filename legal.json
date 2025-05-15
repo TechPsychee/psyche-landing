@@ -1,0 +1,29 @@
+{
+  "terms": {
+    "version": "1.0",
+    "lastUpdated": "2025-05-15",
+    "summary": [
+      "You must be 13+ years old to use OneQ",
+      "Journal entries are stored locally on your device",
+      "You retain ownership of all your content",
+      "Subscription payments are processed by Apple",
+      "Auto-renewal can be turned off in your Apple ID settings",
+      "The app is not a substitute for professional mental health care",
+      "We may update these terms with notice through the app"
+    ],
+    "fullVersion": "https://psyche.solutions/terms.html"
+  },
+  "privacy": {
+    "version": "1.0",
+    "lastUpdated": "2025-05-15",
+    "summary": [
+      "Your journal entries are stored locally on your device",
+      "Optional iCloud backup can sync entries across your devices",
+      "We collect minimal usage data to improve the app",
+      "We don't sell your personal data to third parties",
+      "You can export or delete your data at any time",
+      "You can disable analytics in settings"
+    ],
+    "fullVersion": "https://psyche.solutions/privacy.html"
+  }
+}
