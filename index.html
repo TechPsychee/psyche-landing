@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Yakup Isik | Psychologist & Software Developer</title>
-    <meta name="description" content="Former therapist, current developer. I used to help people debug their lives. Now I debug code. Sometimes I'm not sure which is more absurd.">
+    <title>Yakup Isik | Game Designer & UX Psychologist</title>
+    <meta name="description" content="Designing experiences where psychology meets play. Game design, UX research, and the psychology of player engagement.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://psyche.solutions/">
-    <meta property="og:title" content="Yakup Isik | Psychologist & Software Developer">
-    <meta property="og:description" content="Former therapist, current developer. I used to help people debug their lives. Now I debug code.">
+    <meta property="og:title" content="Yakup Isik | Game Designer & UX Psychologist">
+    <meta property="og:description" content="Designing experiences where psychology meets play. Game design, UX research, and the psychology of player engagement.">
     <meta property="og:image" content="https://psyche.solutions/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://psyche.solutions/">
-    <meta property="twitter:title" content="Yakup Isik | Psychologist & Software Developer">
-    <meta property="twitter:description" content="Former therapist, current developer. The irony is not lost on me.">
+    <meta property="twitter:title" content="Yakup Isik | Game Designer & UX Psychologist">
+    <meta property="twitter:description" content="Designing experiences where psychology meets play.">
     <meta property="twitter:image" content="https://psyche.solutions/og-image.png">
 
     <!-- Robots and Canonical -->
@@ -49,6 +49,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
@@ -56,6 +60,26 @@
             line-height: 1.7;
             font-size: 16px;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 51, 102, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
         }
 
         .container {
@@ -274,6 +298,113 @@
             color: var(--accent);
         }
 
+        /* Ongoing Projects Styling */
+        .ongoing-project {
+            background: linear-gradient(135deg, var(--code-bg) 0%, rgba(0, 217, 255, 0.02) 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ongoing-project:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .status-badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+            color: var(--bg);
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Collaboration Section */
+        .collab-card {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
+            border-bottom: none;
+        }
+
+        /* Project Item Enhancements */
+        .project-item {
+            transition: transform 0.2s ease;
+        }
+
+        .project-item:hover {
+            transform: translateX(5px);
+        }
+
+        /* Animated Underline for Links */
+        h3 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .ongoing-project h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .ongoing-project:hover h3::after {
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -298,20 +429,20 @@
 <body>
     <nav class="nav">
         <a href="#about">about</a>
-        <a href="#work">work</a>
+        <a href="#ongoing">ongoing</a>
         <a href="#projects">projects</a>
-        <a href="#contact">contact</a>
+        <a href="#collaborate">collaborate</a>
     </nav>
 
     <div class="container">
         <header id="about">
             <h1>Yakup Işık</h1>
-            <p class="subtitle">Psychologist & Software Developer</p>
+            <p class="subtitle">Game Designer, UX Psychologist & Developer</p>
 
             <div class="intro">
-                <p>I used to help people debug their lives. Now I debug code. The transition felt natural, honestly—turns out, both involve a lot of listening to complaints, asking "have you tried turning it off and on again?" and wondering why anyone thought this design was a good idea in the first place.</p>
+                <p>I design experiences where psychology meets play. From therapy rooms to game mechanics, from understanding human behavior to designing systems that engage it—my work lives at the intersection of minds and interfaces.</p>
 
-                <p>Here's the thing: after years of sitting in a room helping people untangle their thoughts, I realized I could also sit in a room helping machines pretend to understand human thoughts. Which is either the most logical career progression or a commentary on the absurdity of modern existence. Probably both.</p>
+                <p>Currently obsessed with how games shape emotions, how UX patterns influence behavior, and why we keep falling for the same psychological tricks in both therapy and game design.</p>
             </div>
 
             <div class="meta-info">
@@ -338,7 +469,7 @@
         </section>
 
         <section id="work">
-            <h2>Things I've Done For Money<span class="aside">and some things I did for free, because capitalism is weird</span></h2>
+            <h2>💼 Work Experience<span class="aside">where I've applied psychology to code</span></h2>
 
             <div class="experience-item">
                 <h3>Section Leader, Code in Place</h3>
@@ -391,8 +522,43 @@
             </div>
         </section>
 
+        <section id="ongoing">
+            <h2>🎮 Currently Building<span class="aside">work in progress, stay tuned</span></h2>
+
+            <div class="project-item ongoing-project">
+                <div class="project-header">
+                    <h3>🎓 Psychology of Games & Play</h3>
+                    <span class="status-badge">Udemy Course</span>
+                </div>
+                <p class="date">In Development</p>
+                <p class="description">An in-depth course exploring gaming through an object-relational psychoanalytic lens. We'll dive into the emotional architecture of games, the psychology behind player engagement, and how game mechanics become vehicles for marketing manipulation. Understanding why we play isn't just academic—it's about recognizing how games tap into our deepest psychological needs.</p>
+                <div class="skills">
+                    <span class="skill-tag">Game Psychology</span>
+                    <span class="skill-tag">Psychoanalysis</span>
+                    <span class="skill-tag">Player Behavior</span>
+                    <span class="skill-tag">Marketing Psychology</span>
+                </div>
+            </div>
+
+            <div class="project-item ongoing-project">
+                <div class="project-header">
+                    <h3>🌍 LinguaSpace</h3>
+                    <span class="status-badge">3D Language Learning</span>
+                </div>
+                <p class="date">In Development</p>
+                <p class="description">Imagine learning German by actually wandering through a 3D Berlin. Not flashcards—real contexts. Order coffee at a café, navigate the U-Bahn, have conversations in libraries, sports centers, schools. Language learning as immersive spatial experience, where vocabulary emerges from interaction, not memorization. Because context is everything.</p>
+                <div class="skills">
+                    <span class="skill-tag">Unity/Unreal</span>
+                    <span class="skill-tag">3D Design</span>
+                    <span class="skill-tag">Game Design</span>
+                    <span class="skill-tag">Educational Tech</span>
+                    <span class="skill-tag">NLP</span>
+                </div>
+            </div>
+        </section>
+
         <section id="projects">
-            <h2>Things I've Built<span class="aside">when I should have been sleeping</span></h2>
+            <h2>✨ Completed Projects<span class="aside">shipped and done</span></h2>
 
             <div class="project-item">
                 <h3>Mindful Reflections</h3>
@@ -409,29 +575,6 @@
             </div>
 
             <div class="project-item">
-                <h3>ColorFinder</h3>
-                <p class="date">2024</p>
-                <p class="description">iOS app that extracts dominant color palettes from photos. For designers, artists, or people who spend too much time thinking about hex codes. Built with Swift and Core ML because sometimes you just want to know what "that specific blue" actually is.</p>
-                <div class="skills">
-                    <span class="skill-tag">Swift</span>
-                    <span class="skill-tag">UIKit</span>
-                    <span class="skill-tag">Core ML</span>
-                    <span class="skill-tag">Core Image</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>OneQ (Q)</h3>
-                <p class="date">2024</p>
-                <p class="description">Minimalist journaling app. One question per day. No social features, no analytics, no growth hacking. Just you and a prompt. Revolutionary concept: an app that doesn't try to steal your attention. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-                <div class="skills">
-                    <span class="skill-tag">SwiftUI</span>
-                    <span class="skill-tag">Core Data</span>
-                    <span class="skill-tag">iCloud Sync</span>
-                </div>
-            </div>
-
-            <div class="project-item">
                 <h3>Book Translation: "Baby's Night Sleep"</h3>
                 <p class="date">2024</p>
                 <p class="description">Co-translated Dilys Daws' book on infant sleep into Turkish. Because when you're a psychologist-turned-developer, you still get asked to translate psychoanalytic literature. The work never really leaves you.</p>
@@ -439,7 +582,7 @@
         </section>
 
         <section id="education">
-            <h2>Academic Credentials<span class="aside">or: expensive ways to postpone real life</span></h2>
+            <h2>🎓 Education<span class="aside">the formal bits</span></h2>
 
             <div class="education-item">
                 <h3>M.Sc. Information Technologies</h3>
@@ -471,7 +614,7 @@
         </section>
 
         <section id="skills">
-            <h2>Things I Know How To Do<span class="aside">with varying degrees of competence</span></h2>
+            <h2>🛠️ Skills & Tools<span class="aside">what I bring to the table</span></h2>
 
             <p><strong>Clinical Skills:</strong> Rorschach testing, Thematic Apperception Test (TAT), psychodynamic psychotherapy, pretending to have all the answers.</p>
 
@@ -487,7 +630,7 @@
         </section>
 
         <section id="recognition">
-            <h2>External Validation<span class="aside">because imposter syndrome is real</span></h2>
+            <h2>🏆 Recognition<span class="aside">external validation</span></h2>
 
             <p><strong>OpenAI Researcher Access Grant (2024):</strong> $3,000 grant to research AI applications in mental health. Turns out, asking "what if GPT-4 could help with therapy?" is interesting to people with money.</p>
 
@@ -495,31 +638,51 @@
         </section>
 
         <section id="interests">
-            <h2>What I Think About<span class="aside">when I'm not overthinking everything else</span></h2>
+            <h2>💭 Current Obsessions<span class="aside">what keeps me up at night</span></h2>
 
             <ul>
-                <li>How digital spaces shape mental experiences and therapeutic interventions</li>
-                <li>Psychoanalytic psychotherapy with marginalized and disadvantaged groups</li>
-                <li>AI-assisted psychological assessment tools (and their ethical implications)</li>
-                <li>Culturally sensitive therapy approaches (because "one size fits all" doesn't work for humans)</li>
-                <li>The absurdity of trying to quantify human suffering</li>
-                <li>Why we built a society that requires therapy to tolerate</li>
+                <li>How game mechanics tap into psychological needs and desires</li>
+                <li>UX patterns that respect (or exploit) human attention and behavior</li>
+                <li>The emotional architecture of games—why some experiences stick with us</li>
+                <li>Marketing psychology in gaming and how players are manipulated</li>
+                <li>Designing educational experiences that don't feel like punishment</li>
+                <li>The ethics of engagement: when does good UX become manipulation?</li>
+                <li>Why we keep playing games that make us miserable (looking at you, Dark Souls)</li>
             </ul>
         </section>
 
-        <footer id="contact">
-            <h2>Get In Touch<span class="aside">or don't, I'm not your therapist</span></h2>
+        <section id="collaborate">
+            <h2>🤝 Open to Collaborations</h2>
 
-            <p>If you want to talk about psychology, code, AI ethics, or the intersection of all three, reach out. If you're building something meaningful and think I can help, let's talk. If you're recruiting for a crypto startup that "disrupts mental health," please don't.</p>
+            <div class="collab-card">
+                <p>Working on something at the intersection of games, psychology, and UX? Let's talk. Whether you're building educational games, exploring player psychology, or designing experiences that actually respect human attention—I'm interested.</p>
+
+                <p>Especially curious about projects involving:</p>
+                <ul>
+                    <li>Game design with psychological depth</li>
+                    <li>Educational technology that doesn't bore people to death</li>
+                    <li>UX research for gaming experiences</li>
+                    <li>Ethical approaches to player engagement</li>
+                </ul>
+
+                <div class="cta-buttons">
+                    <a href="mailto:yakup.isik@sabanciuniv.edu" class="cta-button">📧 Email Me</a>
+                    <a href="https://wa.me/905426864692" class="cta-button" target="_blank">💬 WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <h2>Get In Touch</h2>
 
             <div class="contact-links">
                 <a href="mailto:yakup.isik@sabanciuniv.edu">Email</a>
                 <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank">LinkedIn</a>
                 <a href="https://github.com/TechPsychee" target="_blank">GitHub</a>
-                <a href="tel:+905426864692">Phone</a>
+                <a href="https://wa.me/905426864692" target="_blank">WhatsApp</a>
             </div>
 
-            <p style="margin-top: 40px; font-size: 0.85rem;">© 2025 Yakup Işık. Built with mild existential dread and too much coffee.</p>
+            <p style="margin-top: 40px; font-size: 0.85rem;">© 2025 Yakup Işık. Built at the intersection of psychology and pixels.</p>
         </footer>
     </div>
 </body>
