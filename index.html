@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Psyche Solutions | AI, Psychology & iOS Development</title>
-    
-    <meta name="title" content="Psyche Solutions| AI, Psychology & iOS Developer">
-    <meta name="description" content="Pioneering the intersection of psychoanalysis and technology. Creating AI-driven mental health solutions, iOS applications, and innovative digital experiences.">
+    <title>Yakup Isik | Psychologist & Software Developer</title>
+    <meta name="description" content="Former therapist, current developer. I used to help people debug their lives. Now I debug code. Sometimes I'm not sure which is more absurd.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://psyche.solutions/">
-    <meta property="og:title" content="Yakup Isik | AI, Psychology & iOS Developer">
-    <meta property="og:description" content="Bridging psychology and technology through innovative AI-powered solutions and iOS development. Explore cutting-edge projects in mental health technology.">
+    <meta property="og:title" content="Yakup Isik | Psychologist & Software Developer">
+    <meta property="og:description" content="Former therapist, current developer. I used to help people debug their lives. Now I debug code.">
     <meta property="og:image" content="https://psyche.solutions/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://psyche.solutions/">
-    <meta property="twitter:title" content="Yakup Isik | AI, Psychology & iOS Developer">
-    <meta property="twitter:description" content="Pioneering AI-driven mental health technologies and iOS development. Full-stack developer merging psychology and cutting-edge software solutions.">
+    <meta property="twitter:title" content="Yakup Isik | Psychologist & Software Developer">
+    <meta property="twitter:description" content="Former therapist, current developer. The irony is not lost on me.">
     <meta property="twitter:image" content="https://psyche.solutions/og-image.png">
 
     <!-- Robots and Canonical -->
@@ -31,19 +29,18 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- Font Awesome for Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
         :root {
-            --glitch-color-1: #00ff41;
-            --glitch-color-2: #ff0055;
-            --background: #0a0a0a;
-            --text-primary: #f0f0f0;
-            --text-secondary: #a0a0a0;
-            --card-bg: rgba(15, 15, 15, 0.95);
+            --bg: #0d0d0d;
+            --text: #e8e8e8;
+            --text-dim: #888;
+            --accent: #00d9ff;
+            --accent-dim: #007d99;
+            --highlight: #ff3366;
+            --code-bg: #1a1a1a;
+            --border: #2a2a2a;
         }
 
         * {
@@ -52,112 +49,153 @@
             box-sizing: border-box;
         }
 
-        body, html {
-            height: 100%;
-            background: var(--background);
-            font-family: 'Space Mono', monospace;
-            line-height: 1.6;
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
             overflow-x: hidden;
-            color: var(--text-primary);
         }
 
-        /* Hide mobile menu on desktop */
-        .mobile-menu {
-            display: none;
-        }
-
-        /* Cursor Styles */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--glitch-color-1);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s ease, height 0.2s ease, border-color 0.3s ease;
-            mix-blend-mode: difference;
-        }
-        .cursor.hover {
-            width: 40px;
-            height: 40px;
-            border-color: var(--glitch-color-2);
-        }
-        body { cursor: none; }
-        a, .interactive, .menu-item, .social-link { cursor: none !important; }
-
-        .content-section {
-            max-width: 1200px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
 
-        .section-title {
-            color: var(--glitch-color-1);
+        header {
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 40px;
+        }
+
+        h1 {
             font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-top: 20px;
+        }
+
+        .meta-info a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .meta-info a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        h2 .aside {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-dim);
+            font-style: italic;
+            display: block;
+            margin-top: 5px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-style: italic;
+            border-left: 2px solid var(--border);
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .experience-item, .education-item, .project-item {
             margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background-color: var(--glitch-color-1);
-            bottom: -10px;
-            left: 25%;
+        .experience-item:last-child, .education-item:last-child, .project-item:last-child {
+            border-bottom: none;
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .job-title {
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 3px;
         }
 
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--glitch-color-1);
-            padding: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1);
+        .organization {
+            color: var(--accent);
+            font-weight: 400;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(0, 255, 65, 0.1), transparent);
-            transition: all 0.8s ease;
+        .date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 10px;
         }
 
-        .project-card:hover::before {
-            left: 100%;
+        .description {
+            color: var(--text-dim);
         }
 
-        .project-card h3 {
-            color: var(--glitch-color-1);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
+        ul {
+            margin-left: 20px;
             margin-bottom: 15px;
         }
 
-        .skill-tags {
+        li {
+            margin-bottom: 8px;
+            color: var(--text-dim);
+        }
+
+        .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -165,567 +203,324 @@
         }
 
         .skill-tag {
-            background: rgba(0, 255, 65, 0.1);
-            color: var(--glitch-color-1);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(0, 255, 65, 0.3);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            border-radius: 3px;
         }
 
-        /* Desktop Navigation Menu */
-        .interactive-menu {
+        .highlight {
+            color: var(--highlight);
+            font-weight: 500;
+        }
+
+        .observation {
+            background: var(--code-bg);
+            border-left: 3px solid var(--accent);
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav {
             position: fixed;
             top: 20px;
             right: 20px;
             display: flex;
             gap: 20px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
             z-index: 1000;
         }
-        
-        .menu-item {
-            color: var(--text-primary);
-            text-decoration: none;
-            position: relative;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-        }
-        
-        .menu-item::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--glitch-color-1);
-            transition: width 0.3s ease;
-        }
-        
-        .menu-item:hover::after {
-            width: 100%;
+
+        .nav a {
+            color: var(--text-dim);
+            border-bottom: none;
+            transition: color 0.2s;
         }
 
-        .glitch-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            padding: 0 20px;
-        }
-
-        .glitch-text {
-            position: relative;
-            font-size: 10vw;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch-text::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--glitch-color-1);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
-        }
-
-        .glitch-text::after {
-            left: -5px;
-            text-shadow: -5px 0 var(--glitch-color-2);
-            clip: rect(70px, 450px, 85px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% { clip: rect(74px, 9999px, 54px, 0); }
-            25% { clip: rect(63px, 9999px, 73px, 0); }
-            50% { clip: rect(44px, 9999px, 56px, 0); }
-            75% { clip: rect(83px, 9999px, 54px, 0); }
-            100% { clip: rect(64px, 9999px, 74px, 0); }
-        }
-
-        @keyframes glitch-anim2 {
-            0% { clip: rect(84px, 9999px, 54px, 0); }
-            25% { clip: rect(53px, 9999px, 73px, 0); }
-            50% { clip: rect(44px, 9999px, 56px, 0); }
-            75% { clip: rect(93px, 9999px, 54px, 0); }
-            100% { clip: rect(64px, 9999px, 74px, 0); }
-        }
-
-        .subheading {
-            color: var(--text-secondary);
-            text-align: center;
-            max-width: 800px;
-            margin: 20px auto;
-            font-size: 1.2rem;
-        }
-
-        /* Social Links Styles */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .social-link {
-            color: var(--glitch-color-1);
-            font-size: 2rem;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .social-link:hover {
-            color: var(--glitch-color-2);
-            transform: scale(1.2);
-        }
-
-        /* Resume Section */
-        .resume-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .resume-item {
-            border-left: 3px solid var(--glitch-color-1);
-            padding-left: 20px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .resume-item::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--glitch-color-1);
-            left: -9px;
-            top: 5px;
-        }
-
-        .resume-item h3 {
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .resume-item .date {
-            color: var(--glitch-color-2);
-            font-style: italic;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .resume-item .organization {
-            color: var(--glitch-color-1);
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .resume-item p {
-            color: var(--text-secondary);
-        }
-
-        .resume-item ul {
-            margin-top: 10px;
-            padding-left: 20px;
-            color: var(--text-secondary);
-        }
-
-        .resume-item li {
-            margin-bottom: 5px;
-        }
-
-        .download-cv {
-            display: inline-block;
-            margin: 30px auto;
-            padding: 10px 20px;
-            background: transparent;
-            border: 2px solid var(--glitch-color-1);
-            color: var(--glitch-color-1);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .download-cv:hover {
-            background: var(--glitch-color-1);
-            color: var(--background);
-        }
-
-        .download-cv::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.5s ease;
-        }
-
-        .download-cv:hover::before {
-            left: 100%;
-        }
-        
-        @media (hover: none) and (pointer: coarse) {
-            .cursor {
-                display: none;
-            }
-
-            body {
-                cursor: auto;
-            }
-
-            a, .interactive, .menu-item, .social-link {
-                cursor: auto !important;
-            }
-        }
-
-        /* Hamburger Menu for Smaller Screens */
-        .hamburger {
-            display: none;
+        .nav a:hover {
+            color: var(--accent);
         }
 
         @media (max-width: 768px) {
-            .glitch-text {
-                font-size: 15vw;
+            h1 {
+                font-size: 2rem;
             }
 
-            /* Hide desktop menu */
-            .interactive-menu { 
-                display: none; 
-            }
-
-            /* Show hamburger */
-            .hamburger {
-                display: flex;
-                position: fixed;
-                top: 20px; 
-                right: 20px;
-                flex-direction: column;
-                justify-content: space-around;
-                width: 30px; 
-                height: 21px;
-                background: transparent;
-                border: none;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            
-            .hamburger-line {
-                width: 100%;
-                height: 3px;
-                background-color: var(--text-primary);
-                transition: all 0.3s ease-in-out;
-            }
-
-            /* Reveal mobile menu */
-            .mobile-menu {
-                display: flex;
-                position: fixed;
-                top: 0; 
-                left: 0;
-                width: 100%; 
-                height: 100%;
-                background-color: rgba(10, 10, 10, 0.95);
-                flex-direction: column;
+            .nav {
+                position: static;
                 justify-content: center;
-                align-items: center;
-                gap: 30px;
-                z-index: 1000;
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            }
-            
-            .mobile-menu.open {
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .mobile-menu a {
-                color: var(--text-primary);
-                text-decoration: none;
-                font-size: 1.5rem;
-                position: relative;
-            }
-            
-            .mobile-menu a::after {
-                content: '';
-                position: absolute;
-                width: 0; 
-                height: 2px;
-                bottom: -5px; 
-                left: 50%;
-                background-color: var(--glitch-color-1);
-                transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
-            }
-            
-            .mobile-menu a:hover::after {
-                width: 100%; 
-                left: 0;
+                margin-bottom: 30px;
             }
 
-            .resume-item {
-                padding-left: 15px;
+            .container {
+                padding: 40px 20px;
+            }
+
+            .meta-info {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cursor"></div>
-
-    <div class="logo">
-        <a href="#home">
-            <img src="logo.png" alt="Psyche Solutions Logo" width="40" height="40">
-        </a>
-    </div>
-
-    <!-- Hamburger button for mobile -->
-    <button class="hamburger">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-    </button>
-
-    <!-- Desktop Navigation Menu -->
-    <nav class="interactive-menu">
-        <a href="#home" class="menu-item">Home</a>
-        <a href="#projects" class="menu-item">Projects</a>
-        <a href="#experience" class="menu-item">Experience</a>
-        <a href="#about" class="menu-item">About</a>
-        <a href="#contact" class="menu-item">Contact</a>
+    <nav class="nav">
+        <a href="#about">about</a>
+        <a href="#work">work</a>
+        <a href="#projects">projects</a>
+        <a href="#contact">contact</a>
     </nav>
 
-    <!-- Mobile Navigation Menu -->
-    <nav class="mobile-menu">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="container">
+        <header id="about">
+            <h1>Yakup Işık</h1>
+            <p class="subtitle">Psychologist & Software Developer</p>
 
-    <section id="home" class="glitch-container">
-        <div>
-            <h1 class="glitch-text" data-text="Psyche Solutions">Psyche Solutions</h1>
-            <p class="subheading"> Hi, I’m Yakup — a psychotherapist-turned-developer blending emotional insight with clever code. I build tools that think deeply, design thoughtfully, and help people connect better with themselves and the world around them.
+            <div class="intro">
+                <p>I used to help people debug their lives. Now I debug code. The transition felt natural, honestly—turns out, both involve a lot of listening to complaints, asking "have you tried turning it off and on again?" and wondering why anyone thought this design was a good idea in the first place.</p>
 
-</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/TechPsychee" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:yakob.isik0@gmail.com" class="social-link">
-                    <i class="far fa-envelope"></i>
-                </a>
+                <p>Here's the thing: after years of sitting in a room helping people untangle their thoughts, I realized I could also sit in a room helping machines pretend to understand human thoughts. Which is either the most logical career progression or a commentary on the absurdity of modern existence. Probably both.</p>
             </div>
-        </div>
-    </section>
 
-    <section id="projects" class="content-section">
-        <h2 class="section-title">Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
+            <div class="meta-info">
+                <span>Istanbul, Turkey</span>
+                <a href="mailto:yakup.isik@sabanciuniv.edu">yakup.isik@sabanciuniv.edu</a>
+                <a href="tel:+905426864692">+90 542 686 4692</a>
+            </div>
+        </header>
+
+        <section id="philosophy">
+            <h2>The Plot Twist<span class="aside">or: how I learned to stop worrying and love the code</span></h2>
+
+            <p>For seven years, I practiced as a psychotherapist. Psychodynamic approach, if you're wondering. Yes, that means I occasionally referenced Freud without irony. Yes, I'm aware of how that sounds.</p>
+
+            <p>Then one day I thought: what if instead of helping 20 people a week understand their unconscious patterns, I could build tools that reach thousands? What if therapy could scale beyond the fifty-minute hour? What if I'm just rationalizing a mid-career crisis?</p>
+
+            <div class="observation">
+                "The difference between debugging code and doing therapy? In code, when you find the bug, you can actually fix it. In therapy, sometimes the bug is a feature, and we spend months exploring why the user keeps choosing to run it."
+            </div>
+
+            <p>So I went back to school. Got a master's in Information Technologies from Sabancı University. Built AI-powered mental health tools. Started teaching Python at Stanford's Code in Place. Learned that Stack Overflow has basically the same energy as group supervision, just with more passive aggression.</p>
+
+            <p class="footnote">Fun fact: I also have a master's in Forensic Sciences focused on HIV stigmatization and mental health. Because apparently, I enjoy collecting degrees like they're Pokemon cards.</p>
+        </section>
+
+        <section id="work">
+            <h2>Things I've Done For Money<span class="aside">and some things I did for free, because capitalism is weird</span></h2>
+
+            <div class="experience-item">
+                <h3>Section Leader, Code in Place</h3>
+                <p class="organization">Stanford University (Remote)</p>
+                <p class="date">Spring 2025</p>
+                <p class="description">Teaching Python to a global cohort of students. Making complex programming concepts accessible to beginners. Basically, professional hand-holding, but for loops instead of feelings. The skill set transfers surprisingly well.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Freelance Software Developer</h3>
+                <p class="organization">Various Projects</p>
+                <p class="date">2023 – Present</p>
+                <p class="description">Building iOS apps (Swift, SwiftUI), web platforms (Python, Django), and AI-powered tools. Current focus: making technology that doesn't make people want to throw their phones into the ocean.</p>
+                <div class="skills">
+                    <span class="skill-tag">Swift</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">GPT-4</span>
+                    <span class="skill-tag">Core ML</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>Psychologist</h3>
+                <p class="organization">Private Practice</p>
+                <p class="date">2017 – 2023</p>
+                <p class="description">Individual psychotherapy with adults using psychodynamic approach. Specialized in working with people dealing with trauma, identity questions, and the general absurdity of being human in the 21st century. Learned that everyone's childhood was complicated, and everyone thinks they're the only one.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Psychological Counselor (Volunteer)</h3>
+                <p class="organization">SPoD & 17 May Association</p>
+                <p class="date">2018 – Present</p>
+                <p class="description">Pro-bono counseling services for LGBTQ+ individuals. Supporting people navigating sexual orientation and gender identity in a country where that's still considered controversial. Because apparently, being yourself requires professional support now.</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Psychologist (Volunteer)</h3>
+                <p class="organization">Sulukule Volunteers Association</p>
+                <p class="date">2019 – 2021</p>
+                <p class="description">Psychosocial work with women in disadvantaged neighborhoods during the pandemic. Researched the mental health impacts of social injustice. Learned that "mental health" is often code for "having enough money to not constantly panic."</p>
+            </div>
+
+            <div class="experience-item">
+                <h3>Psychosocial Support Specialist</h3>
+                <p class="organization">Positive Life Association</p>
+                <p class="date">2016 – 2017</p>
+                <p class="description">Working with individuals living with HIV. Addressing the psychological impacts of chronic illness and stigmatization. My first full-time role, where I learned that stigma causes more suffering than most diseases.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Things I've Built<span class="aside">when I should have been sleeping</span></h2>
+
+            <div class="project-item">
+                <h3>Mindful Reflections</h3>
+                <p class="date">2024 – Master's Thesis Project</p>
+                <p class="description">A GPT-4-powered platform for psychological support. Built with Django and PostgreSQL. The idea: What if AI could provide thoughtful, nuanced responses to mental health questions? The reality: it's complicated, ethically messy, and exactly the kind of problem worth solving.</p>
+                <p class="footnote">Not in production because launching an AI therapist requires slightly more caution than launching a to-do app. Who knew.</p>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">GPT-4 API</span>
+                    <span class="skill-tag">Redis</span>
+                </div>
+            </div>
+
+            <div class="project-item">
                 <h3>ColorFinder</h3>
-                <p>Ever stared at an image and thought, “These colors get me”? ColorFinder is a native iOS app that pulls dominant color palettes from photos — perfect for designers, artists, or anyone who just loves vibes.
-
-</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">iOS</span>
+                <p class="date">2024</p>
+                <p class="description">iOS app that extracts dominant color palettes from photos. For designers, artists, or people who spend too much time thinking about hex codes. Built with Swift and Core ML because sometimes you just want to know what "that specific blue" actually is.</p>
+                <div class="skills">
                     <span class="skill-tag">Swift</span>
                     <span class="skill-tag">UIKit</span>
                     <span class="skill-tag">Core ML</span>
                     <span class="skill-tag">Core Image</span>
                 </div>
             </div>
-            <div class="project-card">
-    <h3>OneQ</h3>
-    <p>Meet Q. A minimalist journaling app that asks one powerful question each day to inspire deep reflection. No feeds, no likes — just you, your thoughts, and a daily prompt worth thinking about.</p>
-    <div class="skill-tags">
-        <span class="skill-tag">iOS</span>
-        <span class="skill-tag">SwiftUI</span>
-        <span class="skill-tag">Core Data</span>
-        <span class="skill-tag">iCloud Sync</span>
-        <span class="skill-tag">Privacy-First</span>
-    </div>
-    <p style="margin-top: 15px;">
-        <a href="privacy.html" style="color: var(--glitch-color-1); text-decoration: none;">Privacy Policy</a> | 
-        <a href="terms.html" style="color: var(--glitch-color-1); text-decoration: none;">Terms of Service</a>
-    </p>
-</div>
 
-            <div class="project-card">
-                <h3>Mindful Reflections</h3>
-                <p>Mental health support, reimagined with AI. Mindful Reflections is a GPT-4-powered web app offering personalized, thoughtful responses to help users reflect, grow, and feel seen — no logins full of judgment, just honest insight.</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Django</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">Redis</span>
-                    <span class="skill-tag">Auth0</span>
-                    <span class="skill-tag">GPT-4</span>
+            <div class="project-item">
+                <h3>OneQ (Q)</h3>
+                <p class="date">2024</p>
+                <p class="description">Minimalist journaling app. One question per day. No social features, no analytics, no growth hacking. Just you and a prompt. Revolutionary concept: an app that doesn't try to steal your attention. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+                <div class="skills">
+                    <span class="skill-tag">SwiftUI</span>
+                    <span class="skill-tag">Core Data</span>
+                    <span class="skill-tag">iCloud Sync</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="experience" class="content-section">
-        <h2 class="section-title">Experience</h2>
-        <div class="resume-section">
-            <div class="resume-item">
-                <h3>Section Leader at Code in Place</h3>
-                <div class="date">Spring 2025</div>
-                <div class="organization">Stanford University</div>
-                <p>Teaching Python with a global community of learners through Stanford’s Code in Place — making code less scary, and a lot more human.</p>
+            <div class="project-item">
+                <h3>Book Translation: "Baby's Night Sleep"</h3>
+                <p class="date">2024</p>
+                <p class="description">Co-translated Dilys Daws' book on infant sleep into Turkish. Because when you're a psychologist-turned-developer, you still get asked to translate psychoanalytic literature. The work never really leaves you.</p>
             </div>
-            
-            <div class="resume-item">
-    <h3>iOS Developer</h3>
-    <div class="date">2023 - Present</div>
-    <div class="organization">Freelance</div>
-    <p>Building clean, intuitive apps from scratch, including:</p>
-    <ul>
-        <li><strong>ColorFinder:</strong> An app that analyzes image palettes for designers and creatives.</li>
-        <li><strong>MyQuote:</strong> A daily quote app with a twist of Freud and a splash of Swift.</li>
-    </ul>
-    <p><strong>Tools used:</strong> Swift, SwiftUI, UIKit, Core ML, CloudKit — and a bit of obsessive perfectionism.</p>
-</div>
-            
-            
-            
-            <div class="resume-item">
-                <h3>Freelance Software Developer</h3>
-                <div class="date">January 2023 - Present</div>
-                <p>From full-stack builds to AI assistants, I’ve worked across mental health tech, education platforms, and backend systems. Basically, if it runs on code and has a heartbeat — I’m in.
+        </section>
 
-</p>
-                <p><strong>Additional Work:</strong> Library & course management systems (Spring Boot), engaging user experiences (Jakarta).</p>
+        <section id="education">
+            <h2>Academic Credentials<span class="aside">or: expensive ways to postpone real life</span></h2>
+
+            <div class="education-item">
+                <h3>M.Sc. Information Technologies</h3>
+                <p class="organization">Sabancı University, Istanbul</p>
+                <p class="date">2023 – 2024</p>
+                <p class="description">Focus on AI-assisted psychological intervention tools. Thesis on building GPT-4-powered mental health platforms. Learned that "AI ethics" is not an oxymoron, just extremely complicated.</p>
             </div>
-            
-            <div class="resume-item">
-                <h3>Psychotherapist in Private Practice</h3>
-                <div class="date">August 2016 - June 2023</div>
-                <p>Worked with clients facing trauma, loss, and complex emotional issues. Brought that depth into my tech work — because building apps that understand people starts with actually understanding people.</p>
+
+            <div class="education-item">
+                <h3>M.Sc. Forensic Sciences</h3>
+                <p class="organization">Istanbul University</p>
+                <p class="date">2015 – 2019</p>
+                <p class="description">Thesis: "Psychosocial status in individuals living with HIV: Stigmatization and mental well-being." Learned that society's treatment of marginalized groups is often the real pathology.</p>
             </div>
-            
-            <div class="resume-item">
-                <h3>OpenAI Researcher Access Program Grant</h3>
-                <div class="date">2024</div>
-                <p>Received GPT-4 research credits to explore how LLMs can support mental wellness. Currently in the lab, making sure your next therapy bot doesn’t make things worse.</p>
+
+            <div class="education-item">
+                <h3>Summer School, Political Psychology</h3>
+                <p class="organization">Stanford University, California</p>
+                <p class="date">Summer 2017</p>
+                <p class="description">Intensive program on political psychology and research methodology with international students. First exposure to academic environments where people actually cite empirical research in casual conversation.</p>
             </div>
-            
-            <a href="#contact" class="download-cv">Request Full CV</a>
-        </div>
-    </section>
 
-    <section id="about" class="content-section">
-        <h2 class="section-title">About Me</h2>
-        <div class="project-card">
-            <p>I used to sit with people and help them process deep emotions. Now I also sit with machines and teach them to understand human complexity.</p>
-            <p>My background is in clinical psychology, but I’ve always been fascinated by how tech can support mental health in ways that are scalable, smart, and kind. After working as a therapist for years, I transitioned into full-stack development — specializing in AI, mobile apps, and digital tools that don’t just work, but feel right.</p>
-            <p>I hold a Master’s in Information Technology from Sabanci University, and earlier degrees in Psychology and Forensic Sciences from Istanbul University. My work now lives at the intersection of empathy and engineering.</p>
-            <p>I speak Kurdish, Turkish, and English fluently, and I’m conversational in German. Probably skating through the city with some niche electronic playlist, then winding down with code and a psychoanalysis paper I pretended not to already have bookmarked.</p>
-            <div class="skill-tags">
-                <span class="skill-tag">iOS Development</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Psychology</span>
-                <span class="skill-tag">AI Integration</span>
-                <span class="skill-tag">Django</span>
-                <span class="skill-tag">Swift</span>
-                <span class="skill-tag">Mental Health</span>
-                <span class="skill-tag">Web Development</span>
+            <div class="education-item">
+                <h3>B.A. Psychology</h3>
+                <p class="organization">Istanbul University</p>
+                <p class="date">2010 – 2014</p>
+                <p class="description">Foundation in psychoanalytic theories and psychology. GPA: 2.61/4.00, which is proof that grades don't determine your future, just your anxiety levels during finals.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="content-section">
-        <h2 class="section-title">Connect With Me</h2>
-        <div class="project-card">
-            <p>Want to collaborate, brainstorm, or just talk about how weird AI is getting? Reach out — I’m always happy to connect with curious people building meaningful things.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/TechPsychee" target="_blank" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:yakob.isik0@gmail.com" class="social-link">
-                    <i class="far fa-envelope"></i>
-                </a>
-                <a href="tel:+905426864692" class="social-link">
-                    <i class="fas fa-phone"></i>
-                </a>
+        <section id="skills">
+            <h2>Things I Know How To Do<span class="aside">with varying degrees of competence</span></h2>
+
+            <p><strong>Clinical Skills:</strong> Rorschach testing, Thematic Apperception Test (TAT), psychodynamic psychotherapy, pretending to have all the answers.</p>
+
+            <p><strong>Research:</strong> Qualitative and quantitative methodologies, data analysis, academic writing, convincing myself that correlation implies causation (kidding—mostly).</p>
+
+            <p><strong>Technology:</strong> Python, Swift, Django, PostgreSQL, AI integration, SwiftUI, UIKit, Core ML, CloudKit, Redis, Auth0, and whatever new framework was released while I was writing this sentence.</p>
+
+            <p><strong>Languages:</strong> Kurdish (native), Turkish (native), English (fluent), German (intermediate—I can order beer and discuss existential dread, which covers most situations).</p>
+
+            <div class="observation">
+                "Being multilingual in therapy: asset. Being multilingual in programming: somehow still getting Stack Overflow responses in languages I don't speak. The universe has a sense of humor."
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script>
-        // Custom cursor effect
-        const cursor = document.querySelector('.cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        });
-        
-        // Hover effect for interactive elements
-        const interactiveElements = document.querySelectorAll('a, .project-card, .menu-item, .social-link, .download-cv');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-            });
-        });
+        <section id="recognition">
+            <h2>External Validation<span class="aside">because imposter syndrome is real</span></h2>
 
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const mobileMenu = document.querySelector('.mobile-menu');
+            <p><strong>OpenAI Researcher Access Grant (2024):</strong> $3,000 grant to research AI applications in mental health. Turns out, asking "what if GPT-4 could help with therapy?" is interesting to people with money.</p>
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
+            <p><strong>Academic Translation Project (2024):</strong> Bringing psychoanalytic literature to Turkish readers. Because Freud wasn't confusing enough in English.</p>
+        </section>
 
-        // Close Mobile Menu on Link Click
-        const mobileMenuItems = document.querySelectorAll('.mobile-menu a');
-        mobileMenuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        });
+        <section id="interests">
+            <h2>What I Think About<span class="aside">when I'm not overthinking everything else</span></h2>
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+            <ul>
+                <li>How digital spaces shape mental experiences and therapeutic interventions</li>
+                <li>Psychoanalytic psychotherapy with marginalized and disadvantaged groups</li>
+                <li>AI-assisted psychological assessment tools (and their ethical implications)</li>
+                <li>Culturally sensitive therapy approaches (because "one size fits all" doesn't work for humans)</li>
+                <li>The absurdity of trying to quantify human suffering</li>
+                <li>Why we built a society that requires therapy to tolerate</li>
+            </ul>
+        </section>
+
+        <footer id="contact">
+            <h2>Get In Touch<span class="aside">or don't, I'm not your therapist</span></h2>
+
+            <p>If you want to talk about psychology, code, AI ethics, or the intersection of all three, reach out. If you're building something meaningful and think I can help, let's talk. If you're recruiting for a crypto startup that "disrupts mental health," please don't.</p>
+
+            <div class="contact-links">
+                <a href="mailto:yakup.isik@sabanciuniv.edu">Email</a>
+                <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank">LinkedIn</a>
+                <a href="https://github.com/TechPsychee" target="_blank">GitHub</a>
+                <a href="tel:+905426864692">Phone</a>
+            </div>
+
+            <p style="margin-top: 40px; font-size: 0.85rem;">© 2025 Yakup Işık. Built with mild existential dread and too much coffee.</p>
+        </footer>
+    </div>
 </body>
 </html>
