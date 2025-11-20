@@ -4,42 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
-    <title>Yakup Isik | Game Designer & UX Psychologist</title>
-    <meta name="description" content="Designing experiences where psychology meets play. Game design, UX research, and the psychology of player engagement.">
+    <title>Yakup Işık | Game Designer & UX Psychologist</title>
+    <meta name="description" content="Interactive neural network portfolio - Game design, UX psychology, and the intersection of minds and play.">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yakup Işık | Game Designer & UX Psychologist">
+    <meta property="og:description" content="Interactive neural network portfolio">
     <meta property="og:url" content="https://psyche.solutions/">
-    <meta property="og:title" content="Yakup Isik | Game Designer & UX Psychologist">
-    <meta property="og:description" content="Designing experiences where psychology meets play. Game design, UX research, and the psychology of player engagement.">
-    <meta property="og:image" content="https://psyche.solutions/og-image.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://psyche.solutions/">
-    <meta property="twitter:title" content="Yakup Isik | Game Designer & UX Psychologist">
-    <meta property="twitter:description" content="Designing experiences where psychology meets play.">
-    <meta property="twitter:image" content="https://psyche.solutions/og-image.png">
-
-    <!-- Robots and Canonical -->
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://psyche.solutions/">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
         :root {
-            --bg: #0d0d0d;
+            --bg: #0a0a0a;
             --text: #e8e8e8;
             --text-dim: #888;
             --accent: #00d9ff;
             --accent-dim: #007d99;
             --highlight: #ff3366;
-            --code-bg: #1a1a1a;
             --border: #2a2a2a;
         }
 
@@ -49,611 +32,859 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.7;
-            font-size: 16px;
-            overflow-x: hidden;
-            position: relative;
+            overflow: hidden;
+            height: 100vh;
         }
 
-        body::before {
-            content: '';
+        #canvas-container {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* Loading Screen */
+        #loading {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 51, 102, 0.03) 0%, transparent 50%);
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        #loading.hidden {
+            opacity: 0;
             pointer-events: none;
-            z-index: 0;
         }
 
-        .container {
-            position: relative;
-            z-index: 1;
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
-        header {
-            margin-bottom: 80px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 40px;
+        #loading p {
+            margin-top: 20px;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-dim);
+            font-size: 0.9rem;
         }
 
-        h1 {
-            font-size: 2.5rem;
+        /* UI Overlay */
+        #ui-overlay {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        #title {
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 10px;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        #subtitle {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Instructions */
+        #instructions {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-align: center;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        /* Modal */
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        #modal.active {
+            display: flex;
+        }
+
+        #modal-content {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 217, 255, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.1);
+        }
+
+        #close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        #close-modal:hover {
             color: var(--accent);
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            font-weight: 300;
+        #modal-content h2 {
+            color: var(--accent);
             margin-bottom: 20px;
+            font-size: 2rem;
         }
 
-        .intro {
-            font-size: 1.1rem;
-            line-height: 1.8;
+        #modal-content h3 {
             color: var(--text);
-            margin-bottom: 20px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
         }
 
-        .meta-info {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.9rem;
+        #modal-content p,
+        #modal-content li {
             color: var(--text-dim);
-            margin-top: 20px;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
-        .meta-info a {
+        #modal-content ul {
+            margin-left: 20px;
+        }
+
+        #modal-content a {
             color: var(--accent);
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: border-color 0.2s;
         }
 
-        .meta-info a:hover {
+        #modal-content a:hover {
             border-bottom-color: var(--accent);
         }
 
-        section {
-            margin-bottom: 80px;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 500;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-
-        h2 .aside {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--text-dim);
-            font-style: italic;
-            display: block;
-            margin-top: 5px;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 5px;
+        .skill-tag {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--border);
             color: var(--accent);
-        }
-
-        p {
-            margin-bottom: 20px;
-            color: var(--text);
-        }
-
-        .footnote {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            font-style: italic;
-            border-left: 2px solid var(--border);
-            padding-left: 20px;
-            margin: 20px 0;
-        }
-
-        .experience-item, .education-item, .project-item {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .experience-item:last-child, .education-item:last-child, .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .job-title {
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 3px;
-        }
-
-        .organization {
-            color: var(--accent);
-            font-weight: 400;
+            border-radius: 3px;
+            margin: 5px 5px 5px 0;
         }
 
         .date {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.85rem;
-            color: var(--text-dim);
+            color: var(--accent-dim);
             margin-bottom: 10px;
         }
 
-        .description {
-            color: var(--text-dim);
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: var(--text-dim);
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            background: var(--code-bg);
-            border: 1px solid var(--border);
-            color: var(--accent);
-            border-radius: 3px;
-        }
-
-        .highlight {
-            color: var(--highlight);
+        .organization {
+            color: var(--text);
             font-weight: 500;
+            margin-bottom: 5px;
         }
 
-        .observation {
-            background: var(--code-bg);
-            border-left: 3px solid var(--accent);
-            padding: 20px;
-            margin: 30px 0;
-            font-style: italic;
+        /* Scrollbar */
+        #modal-content::-webkit-scrollbar {
+            width: 8px;
         }
 
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
+        #modal-content::-webkit-scrollbar-track {
+            background: rgba(42, 42, 42, 0.3);
         }
 
-        a:hover {
-            border-bottom-color: var(--accent);
+        #modal-content::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
         }
 
-        footer {
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 20px;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.85rem;
-            z-index: 1000;
-        }
-
-        .nav a {
-            color: var(--text-dim);
-            border-bottom: none;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Ongoing Projects Styling */
-        .ongoing-project {
-            background: linear-gradient(135deg, var(--code-bg) 0%, rgba(0, 217, 255, 0.02) 100%);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 30px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .ongoing-project:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.1);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .status-badge {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            padding: 6px 12px;
-            background: linear-gradient(135deg, var(--accent-dim), var(--accent));
-            color: var(--bg);
-            border-radius: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        /* Collaboration Section */
-        .collab-card {
-            background: var(--code-bg);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent);
-            border-radius: 8px;
-            padding: 30px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-dim));
-            color: var(--bg);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            border: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            font-size: 0.95rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
-            border-bottom: none;
-        }
-
-        /* Project Item Enhancements */
-        .project-item {
-            transition: transform 0.2s ease;
-        }
-
-        .project-item:hover {
-            transform: translateX(5px);
-        }
-
-        /* Animated Underline for Links */
-        h3 {
-            position: relative;
-            display: inline-block;
-        }
-
-        .ongoing-project h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+        #modal-content::-webkit-scrollbar-thumb:hover {
             background: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        .ongoing-project:hover h3::after {
-            width: 100%;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            #ui-overlay {
+                top: 10px;
+                left: 10px;
             }
 
-            .nav {
-                position: static;
-                justify-content: center;
-                margin-bottom: 30px;
+            #title {
+                font-size: 1.2rem;
             }
 
-            .container {
-                padding: 40px 20px;
-            }
-
-            .meta-info {
+            #subtitle {
                 font-size: 0.8rem;
+            }
+
+            #modal-content {
+                padding: 30px 20px;
+            }
+
+            #instructions {
+                font-size: 0.75rem;
+                bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <a href="#about">about</a>
-        <a href="#ongoing">ongoing</a>
-        <a href="#projects">projects</a>
-        <a href="#collaborate">collaborate</a>
-    </nav>
-
-    <div class="container">
-        <header id="about">
-            <h1>Yakup Işık</h1>
-            <p class="subtitle">Game Designer, UX Psychologist & Developer</p>
-
-            <div class="meta-info">
-                <span>Istanbul, Turkey</span>
-                <a href="mailto:yakup.isik@sabanciuniv.edu">yakup.isik@sabanciuniv.edu</a>
-                <a href="tel:+905426864692">+90 542 686 4692</a>
-            </div>
-        </header>
-
-        <section id="work">
-            <h2>💼 Work Experience</h2>
-
-            <div class="experience-item">
-                <h3>Section Leader, Code in Place</h3>
-                <p class="organization">Stanford University (Remote)</p>
-                <p class="date">Spring 2025</p>
-                <p class="description">Teaching Python to a global cohort of students. Making complex programming concepts accessible to beginners.</p>
-            </div>
-
-            <div class="experience-item">
-                <h3>Freelance Software Developer</h3>
-                <p class="organization">Various Projects</p>
-                <p class="date">2023 – Present</p>
-                <p class="description">Building iOS apps (Swift, SwiftUI), web platforms (Python, Django), and AI-powered tools focused on mental health and user experience.</p>
-                <div class="skills">
-                    <span class="skill-tag">Swift</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Django</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">GPT-4</span>
-                    <span class="skill-tag">Core ML</span>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <h3>Psychologist</h3>
-                <p class="organization">Private Practice</p>
-                <p class="date">2017 – 2023</p>
-                <p class="description">Individual psychotherapy with adults using psychodynamic approach. Specialized in working with trauma and identity issues.</p>
-            </div>
-
-            <div class="experience-item">
-                <h3>Psychological Counselor (Volunteer)</h3>
-                <p class="organization">SPoD & 17 May Association</p>
-                <p class="date">2018 – Present</p>
-                <p class="description">Pro-bono counseling services for LGBTQ+ individuals. Supporting people navigating sexual orientation and gender identity.</p>
-            </div>
-
-            <div class="experience-item">
-                <h3>Psychologist (Volunteer)</h3>
-                <p class="organization">Sulukule Volunteers Association</p>
-                <p class="date">2019 – 2021</p>
-                <p class="description">Psychosocial work with women in disadvantaged neighborhoods during the pandemic. Researched the mental health impacts of social injustice.</p>
-            </div>
-
-            <div class="experience-item">
-                <h3>Psychosocial Support Specialist</h3>
-                <p class="organization">Positive Life Association</p>
-                <p class="date">2016 – 2017</p>
-                <p class="description">Working with individuals living with HIV. Addressing the psychological impacts of chronic illness and stigmatization.</p>
-            </div>
-        </section>
-
-        <section id="ongoing">
-            <h2>🎮 Ongoing Projects</h2>
-
-            <div class="project-item ongoing-project">
-                <div class="project-header">
-                    <h3>🎓 Psychology of Games & Play</h3>
-                    <span class="status-badge">Udemy Course</span>
-                </div>
-                <p class="date">In Development</p>
-                <p class="description">Turns out you can analyze games the same way you analyze early childhood attachment patterns. Who knew? I'm putting together a course about this—object relations theory meets Fortnite. How games tap into the same emotional needs as therapy. How a well-designed boss fight has the same structure as working through trauma. How marketing teams have been reading psychoanalytic literature and we just... let them. It's fascinating. It's also kind of terrifying.</p>
-                <div class="skills">
-                    <span class="skill-tag">Game Psychology</span>
-                    <span class="skill-tag">Psychoanalysis</span>
-                    <span class="skill-tag">Player Behavior</span>
-                    <span class="skill-tag">Marketing Psychology</span>
-                </div>
-            </div>
-
-            <div class="project-item ongoing-project">
-                <div class="project-header">
-                    <h3>🌍 LinguaSpace</h3>
-                    <span class="status-badge">3D Language Learning</span>
-                </div>
-                <p class="date">In Development</p>
-                <p class="description">Here's a thought I had: what if you could learn a language by just... being somewhere? Like actually being there, except you're not paying $3000 for a plane ticket. So I'm building this 3D environment—let's say you want to learn German. You're in Berlin. Virtual Berlin. You need coffee, so you walk into a café. You need to take the U-Bahn. You end up in a library, a sports center. Real contexts. Real conversations. Not a flashcard in sight. It's either brilliant or completely impractical. Probably both.</p>
-                <div class="skills">
-                    <span class="skill-tag">Unity/Unreal</span>
-                    <span class="skill-tag">3D Design</span>
-                    <span class="skill-tag">Game Design</span>
-                    <span class="skill-tag">Educational Tech</span>
-                    <span class="skill-tag">NLP</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>✨ Completed Projects</h2>
-
-            <div class="project-item">
-                <h3>Mindful Reflections</h3>
-                <p class="date">2024 – Master's Thesis Project</p>
-                <p class="description">A GPT-4-powered platform for psychological support. Built with Django and PostgreSQL. Exploring AI-assisted mental health intervention tools.</p>
-                <div class="skills">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Django</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">GPT-4 API</span>
-                    <span class="skill-tag">Redis</span>
-                </div>
-            </div>
-
-            <div class="project-item">
-                <h3>Book Translation: "Baby's Night Sleep"</h3>
-                <p class="date">2024</p>
-                <p class="description">Co-translated Dilys Daws' book on infant sleep into Turkish.</p>
-            </div>
-        </section>
-
-        <section id="education">
-            <h2>🎓 Education</h2>
-
-            <div class="education-item">
-                <h3>M.Sc. Information Technologies</h3>
-                <p class="organization">Sabancı University, Istanbul</p>
-                <p class="date">2023 – 2024</p>
-                <p class="description">Focus on AI-assisted psychological intervention tools. Thesis on building GPT-4-powered mental health platforms.</p>
-            </div>
-
-            <div class="education-item">
-                <h3>M.Sc. Forensic Sciences</h3>
-                <p class="organization">Istanbul University</p>
-                <p class="date">2015 – 2019</p>
-                <p class="description">Thesis: "Psychosocial status in individuals living with HIV: Stigmatization and mental well-being."</p>
-            </div>
-
-            <div class="education-item">
-                <h3>Summer School, Political Psychology</h3>
-                <p class="organization">Stanford University, California</p>
-                <p class="date">Summer 2017</p>
-                <p class="description">Intensive program on political psychology and research methodology with international students.</p>
-            </div>
-
-            <div class="education-item">
-                <h3>B.A. Psychology</h3>
-                <p class="organization">Istanbul University</p>
-                <p class="date">2010 – 2014</p>
-                <p class="description">Foundation in psychoanalytic theories and psychology. GPA: 2.61/4.00</p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>🛠️ Skills & Tools</h2>
-
-            <p><strong>Clinical Skills:</strong> Rorschach testing, Thematic Apperception Test (TAT), psychodynamic psychotherapy</p>
-
-            <p><strong>Research:</strong> Qualitative and quantitative methodologies, data analysis, academic writing</p>
-
-            <p><strong>Technology:</strong> Python, Swift, Django, PostgreSQL, AI integration, SwiftUI, UIKit, Core ML, CloudKit, Redis, Auth0</p>
-
-            <p><strong>Languages:</strong> Kurdish (native), Turkish (native), English (fluent), German (intermediate)</p>
-        </section>
-
-        <section id="recognition">
-            <h2>🏆 Recognition</h2>
-
-            <p><strong>OpenAI Researcher Access Grant (2024):</strong> $3,000 grant to research AI applications in mental health</p>
-
-            <p><strong>Academic Translation Project (2024):</strong> Co-translated psychoanalytic literature to Turkish</p>
-        </section>
-
-        <section id="interests">
-            <h2>💭 Research Interests</h2>
-
-            <ul>
-                <li>Psychological mechanisms in game design and player engagement</li>
-                <li>The relationship between frustration, challenge, and player retention</li>
-                <li>UX patterns and their psychological impact on user behavior</li>
-                <li>Marketing psychology in gaming and digital products</li>
-                <li>Educational game design and learning motivation</li>
-                <li>Ethical design practices in user engagement</li>
-            </ul>
-        </section>
-
-        <section id="collaborate">
-            <h2>🤝 Collaboration</h2>
-
-            <div class="collab-card">
-                <p>Open to collaborations in:</p>
-                <ul>
-                    <li>Game design with psychological focus</li>
-                    <li>Educational technology and learning design</li>
-                    <li>UX research for gaming experiences</li>
-                    <li>Ethical player engagement systems</li>
-                </ul>
-
-                <div class="cta-buttons">
-                    <a href="mailto:yakup.isik@sabanciuniv.edu" class="cta-button">📧 Email</a>
-                    <a href="https://wa.me/905426864692" class="cta-button" target="_blank">💬 WhatsApp</a>
-                </div>
-            </div>
-        </section>
-
-        <footer id="contact">
-            <h2>Get In Touch</h2>
-
-            <div class="contact-links">
-                <a href="mailto:yakup.isik@sabanciuniv.edu">Email</a>
-                <a href="https://www.linkedin.com/in/yakup-ishik" target="_blank">LinkedIn</a>
-                <a href="https://github.com/TechPsychee" target="_blank">GitHub</a>
-                <a href="https://wa.me/905426864692" target="_blank">WhatsApp</a>
-            </div>
-
-            <p style="margin-top: 40px; font-size: 0.85rem;">© 2025 Yakup Işık. Built at the intersection of psychology and pixels.</p>
-        </footer>
+    <div id="loading">
+        <div class="loader"></div>
+        <p>Initializing neural network...</p>
     </div>
+
+    <div id="ui-overlay">
+        <div id="title">Yakup Işık</div>
+        <div id="subtitle">Game Designer, UX Psychologist & Developer</div>
+    </div>
+
+    <div id="instructions">
+        Drag to rotate • Click nodes to explore
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <button id="close-modal">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Data structure for the network
+        const networkData = {
+            center: {
+                id: 'center',
+                label: 'YI',
+                type: 'center',
+                size: 1.5,
+                content: {
+                    title: 'Yakup Işık',
+                    body: `
+                        <p>Game Designer, UX Psychologist & Developer</p>
+                        <p>Istanbul, Turkey</p>
+                        <p><a href="mailto:yakup.isik@sabanciuniv.edu">yakup.isik@sabanciuniv.edu</a></p>
+                        <p><a href="tel:+905426864692">+90 542 686 4692</a></p>
+                        <p><a href="https://www.linkedin.com/in/yakup-ishik" target="_blank">LinkedIn</a> |
+                           <a href="https://github.com/TechPsychee" target="_blank">GitHub</a> |
+                           <a href="https://wa.me/905426864692" target="_blank">WhatsApp</a></p>
+                    `
+                }
+            },
+            nodes: [
+                {
+                    id: 'work',
+                    label: 'Work',
+                    type: 'major',
+                    size: 1.2,
+                    color: 0x00d9ff,
+                    children: [
+                        {
+                            id: 'work-1',
+                            label: 'Stanford',
+                            content: {
+                                title: 'Section Leader, Code in Place',
+                                body: `
+                                    <p class="organization">Stanford University (Remote)</p>
+                                    <p class="date">Spring 2025</p>
+                                    <p>Teaching Python to a global cohort of students. Making complex programming concepts accessible to beginners.</p>
+                                `
+                            }
+                        },
+                        {
+                            id: 'work-2',
+                            label: 'Freelance',
+                            content: {
+                                title: 'Freelance Software Developer',
+                                body: `
+                                    <p class="organization">Various Projects</p>
+                                    <p class="date">2023 – Present</p>
+                                    <p>Building iOS apps (Swift, SwiftUI), web platforms (Python, Django), and AI-powered tools focused on mental health and user experience.</p>
+                                    <div>
+                                        <span class="skill-tag">Swift</span>
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">Django</span>
+                                        <span class="skill-tag">PostgreSQL</span>
+                                        <span class="skill-tag">GPT-4</span>
+                                        <span class="skill-tag">Core ML</span>
+                                    </div>
+                                `
+                            }
+                        },
+                        {
+                            id: 'work-3',
+                            label: 'Therapy',
+                            content: {
+                                title: 'Psychologist',
+                                body: `
+                                    <p class="organization">Private Practice</p>
+                                    <p class="date">2017 – 2023</p>
+                                    <p>Individual psychotherapy with adults using psychodynamic approach. Specialized in working with trauma and identity issues.</p>
+                                `
+                            }
+                        },
+                        {
+                            id: 'work-4',
+                            label: 'LGBTQ+',
+                            content: {
+                                title: 'Psychological Counselor (Volunteer)',
+                                body: `
+                                    <p class="organization">SPoD & 17 May Association</p>
+                                    <p class="date">2018 – Present</p>
+                                    <p>Pro-bono counseling services for LGBTQ+ individuals. Supporting people navigating sexual orientation and gender identity.</p>
+                                `
+                            }
+                        },
+                        {
+                            id: 'work-5',
+                            label: 'HIV',
+                            content: {
+                                title: 'Psychosocial Support Specialist',
+                                body: `
+                                    <p class="organization">Positive Life Association</p>
+                                    <p class="date">2016 – 2017</p>
+                                    <p>Working with individuals living with HIV. Addressing the psychological impacts of chronic illness and stigmatization.</p>
+                                `
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'ongoing',
+                    label: 'Ongoing',
+                    type: 'major',
+                    size: 1.2,
+                    color: 0xff3366,
+                    children: [
+                        {
+                            id: 'ongoing-1',
+                            label: 'Udemy',
+                            content: {
+                                title: 'Psychology of Games & Play',
+                                body: `
+                                    <p class="date">In Development</p>
+                                    <p>Turns out you can analyze games the same way you analyze early childhood attachment patterns. Who knew? I'm putting together a course about this—object relations theory meets Fortnite. How games tap into the same emotional needs as therapy. How a well-designed boss fight has the same structure as working through trauma. How marketing teams have been reading psychoanalytic literature and we just... let them. It's fascinating. It's also kind of terrifying.</p>
+                                    <div>
+                                        <span class="skill-tag">Game Psychology</span>
+                                        <span class="skill-tag">Psychoanalysis</span>
+                                        <span class="skill-tag">Player Behavior</span>
+                                        <span class="skill-tag">Marketing Psychology</span>
+                                    </div>
+                                `
+                            }
+                        },
+                        {
+                            id: 'ongoing-2',
+                            label: 'LinguaSpace',
+                            content: {
+                                title: 'LinguaSpace - 3D Language Learning',
+                                body: `
+                                    <p class="date">In Development</p>
+                                    <p>Here's a thought I had: what if you could learn a language by just... being somewhere? Like actually being there, except you're not paying $3000 for a plane ticket. So I'm building this 3D environment—let's say you want to learn German. You're in Berlin. Virtual Berlin. You need coffee, so you walk into a café. You need to take the U-Bahn. You end up in a library, a sports center. Real contexts. Real conversations. Not a flashcard in sight. It's either brilliant or completely impractical. Probably both.</p>
+                                    <div>
+                                        <span class="skill-tag">Unity/Unreal</span>
+                                        <span class="skill-tag">3D Design</span>
+                                        <span class="skill-tag">Game Design</span>
+                                        <span class="skill-tag">Educational Tech</span>
+                                        <span class="skill-tag">NLP</span>
+                                    </div>
+                                `
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'projects',
+                    label: 'Projects',
+                    type: 'major',
+                    size: 1.2,
+                    color: 0x00d9ff,
+                    children: [
+                        {
+                            id: 'proj-1',
+                            label: 'Mindful',
+                            content: {
+                                title: 'Mindful Reflections',
+                                body: `
+                                    <p class="date">2024 – Master's Thesis Project</p>
+                                    <p>A GPT-4-powered platform for psychological support. Built with Django and PostgreSQL. Exploring AI-assisted mental health intervention tools.</p>
+                                    <div>
+                                        <span class="skill-tag">Python</span>
+                                        <span class="skill-tag">Django</span>
+                                        <span class="skill-tag">PostgreSQL</span>
+                                        <span class="skill-tag">GPT-4 API</span>
+                                        <span class="skill-tag">Redis</span>
+                                    </div>
+                                `
+                            }
+                        },
+                        {
+                            id: 'proj-2',
+                            label: 'Translation',
+                            content: {
+                                title: 'Book Translation: "Baby\'s Night Sleep"',
+                                body: `
+                                    <p class="date">2024</p>
+                                    <p>Co-translated Dilys Daws' book on infant sleep into Turkish.</p>
+                                `
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'education',
+                    label: 'Education',
+                    type: 'major',
+                    size: 1.2,
+                    color: 0x00d9ff,
+                    children: [
+                        {
+                            id: 'edu-1',
+                            label: 'MSc IT',
+                            content: {
+                                title: 'M.Sc. Information Technologies',
+                                body: `
+                                    <p class="organization">Sabancı University, Istanbul</p>
+                                    <p class="date">2023 – 2024</p>
+                                    <p>Focus on AI-assisted psychological intervention tools. Thesis on building GPT-4-powered mental health platforms.</p>
+                                `
+                            }
+                        },
+                        {
+                            id: 'edu-2',
+                            label: 'MSc Forensic',
+                            content: {
+                                title: 'M.Sc. Forensic Sciences',
+                                body: `
+                                    <p class="organization">Istanbul University</p>
+                                    <p class="date">2015 – 2019</p>
+                                    <p>Thesis: "Psychosocial status in individuals living with HIV: Stigmatization and mental well-being."</p>
+                                `
+                            }
+                        },
+                        {
+                            id: 'edu-3',
+                            label: 'Stanford',
+                            content: {
+                                title: 'Summer School, Political Psychology',
+                                body: `
+                                    <p class="organization">Stanford University, California</p>
+                                    <p class="date">Summer 2017</p>
+                                    <p>Intensive program on political psychology and research methodology with international students.</p>
+                                `
+                            }
+                        },
+                        {
+                            id: 'edu-4',
+                            label: 'BA Psych',
+                            content: {
+                                title: 'B.A. Psychology',
+                                body: `
+                                    <p class="organization">Istanbul University</p>
+                                    <p class="date">2010 – 2014</p>
+                                    <p>Foundation in psychoanalytic theories and psychology. GPA: 2.61/4.00</p>
+                                `
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'skills',
+                    label: 'Skills',
+                    type: 'major',
+                    size: 1.2,
+                    color: 0x00d9ff,
+                    content: {
+                        title: 'Skills & Tools',
+                        body: `
+                            <h3>Clinical Skills</h3>
+                            <p>Rorschach testing, Thematic Apperception Test (TAT), psychodynamic psychotherapy</p>
+
+                            <h3>Research</h3>
+                            <p>Qualitative and quantitative methodologies, data analysis, academic writing</p>
+
+                            <h3>Technology</h3>
+                            <div>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Swift</span>
+                                <span class="skill-tag">Django</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">AI Integration</span>
+                                <span class="skill-tag">SwiftUI</span>
+                                <span class="skill-tag">UIKit</span>
+                                <span class="skill-tag">Core ML</span>
+                                <span class="skill-tag">CloudKit</span>
+                                <span class="skill-tag">Redis</span>
+                                <span class="skill-tag">Auth0</span>
+                            </div>
+
+                            <h3>Languages</h3>
+                            <p>Kurdish (native), Turkish (native), English (fluent), German (intermediate)</p>
+                        `
+                    }
+                },
+                {
+                    id: 'contact',
+                    label: 'Contact',
+                    type: 'major',
+                    size: 1.2,
+                    color: 0xff3366,
+                    content: {
+                        title: 'Get In Touch',
+                        body: `
+                            <p>Open to collaborations in:</p>
+                            <ul>
+                                <li>Game design with psychological focus</li>
+                                <li>Educational technology and learning design</li>
+                                <li>UX research for gaming experiences</li>
+                                <li>Ethical player engagement systems</li>
+                            </ul>
+                            <p><a href="mailto:yakup.isik@sabanciuniv.edu">yakup.isik@sabanciuniv.edu</a></p>
+                            <p><a href="https://wa.me/905426864692" target="_blank">WhatsApp: +90 542 686 4692</a></p>
+                            <p><a href="https://www.linkedin.com/in/yakup-ishik" target="_blank">LinkedIn</a> |
+                               <a href="https://github.com/TechPsychee" target="_blank">GitHub</a></p>
+                        `
+                    }
+                }
+            ]
+        };
+
+        // Three.js setup
+        let scene, camera, renderer, controls;
+        let nodes = [];
+        let lines = [];
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isDragging = false;
+        let previousMousePosition = { x: 0, y: 0 };
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.fog = new THREE.Fog(0x0a0a0a, 10, 50);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 15;
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0x00d9ff, 1, 50);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            // Create network
+            createNetwork();
+
+            // Event listeners
+            window.addEventListener('resize', onWindowResize);
+            renderer.domElement.addEventListener('mousedown', onMouseDown);
+            renderer.domElement.addEventListener('mousemove', onMouseMove);
+            renderer.domElement.addEventListener('mouseup', onMouseUp);
+            renderer.domElement.addEventListener('click', onNodeClick);
+
+            // Modal close
+            document.getElementById('close-modal').addEventListener('click', closeModal);
+            document.getElementById('modal').addEventListener('click', (e) => {
+                if (e.target.id === 'modal') closeModal();
+            });
+
+            // Hide loading
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+
+            animate();
+        }
+
+        function createNetwork() {
+            const allNodes = [];
+
+            // Create center node
+            const centerNode = createNode(networkData.center, 0, 0, 0);
+            allNodes.push({ mesh: centerNode, data: networkData.center, isCenter: true });
+
+            // Create major nodes in a circle around center
+            const majorRadius = 8;
+            const majorCount = networkData.nodes.length;
+
+            networkData.nodes.forEach((nodeData, index) => {
+                const angle = (index / majorCount) * Math.PI * 2;
+                const x = Math.cos(angle) * majorRadius;
+                const y = Math.sin(angle) * majorRadius;
+                const z = (Math.random() - 0.5) * 4;
+
+                const majorNode = createNode(nodeData, x, y, z);
+                allNodes.push({ mesh: majorNode, data: nodeData, isMajor: true });
+
+                // Connect to center
+                createConnection(centerNode.position, majorNode.position);
+
+                // Create child nodes if they exist
+                if (nodeData.children) {
+                    const childRadius = 3;
+                    const childCount = nodeData.children.length;
+
+                    nodeData.children.forEach((childData, childIndex) => {
+                        const childAngle = (childIndex / childCount) * Math.PI * 2;
+                        const cx = x + Math.cos(childAngle) * childRadius;
+                        const cy = y + Math.sin(childAngle) * childRadius;
+                        const cz = z + (Math.random() - 0.5) * 2;
+
+                        const childNode = createNode(childData, cx, cy, cz, 0.6);
+                        allNodes.push({ mesh: childNode, data: childData, isChild: true, parent: nodeData });
+
+                        // Connect child to parent
+                        createConnection(majorNode.position, childNode.position);
+                    });
+                }
+            });
+
+            nodes = allNodes;
+        }
+
+        function createNode(data, x, y, z, sizeMultiplier = 1) {
+            const size = (data.size || 0.8) * sizeMultiplier;
+            const geometry = new THREE.SphereGeometry(size, 32, 32);
+
+            let color = 0x00d9ff;
+            if (data.type === 'center') color = 0xff3366;
+            else if (data.color) color = data.color;
+
+            const material = new THREE.MeshPhongMaterial({
+                color: color,
+                emissive: color,
+                emissiveIntensity: 0.3,
+                shininess: 100,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            const sphere = new THREE.Mesh(geometry, material);
+            sphere.position.set(x, y, z);
+            sphere.userData = data;
+
+            scene.add(sphere);
+
+            // Add text label
+            if (data.label) {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = 256;
+                canvas.height = 128;
+
+                context.fillStyle = 'rgba(0, 0, 0, 0)';
+                context.fillRect(0, 0, canvas.width, canvas.height);
+
+                context.font = 'bold 48px IBM Plex Mono';
+                context.fillStyle = '#e8e8e8';
+                context.textAlign = 'center';
+                context.textBaseline = 'middle';
+                context.fillText(data.label, canvas.width / 2, canvas.height / 2);
+
+                const texture = new THREE.CanvasTexture(canvas);
+                const spriteMaterial = new THREE.SpriteMaterial({ map: texture, transparent: true });
+                const sprite = new THREE.Sprite(spriteMaterial);
+                sprite.scale.set(2, 1, 1);
+                sprite.position.set(x, y - size - 1, z);
+
+                scene.add(sprite);
+            }
+
+            return sphere;
+        }
+
+        function createConnection(pos1, pos2) {
+            const points = [pos1, pos2];
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const material = new THREE.LineBasicMaterial({
+                color: 0x00d9ff,
+                opacity: 0.2,
+                transparent: true
+            });
+            const line = new THREE.Line(geometry, material);
+            scene.add(line);
+            lines.push(line);
+        }
+
+        function onMouseDown(event) {
+            isDragging = true;
+            previousMousePosition = {
+                x: event.clientX,
+                y: event.clientY
+            };
+        }
+
+        function onMouseMove(event) {
+            if (isDragging) {
+                const deltaMove = {
+                    x: event.clientX - previousMousePosition.x,
+                    y: event.clientY - previousMousePosition.y
+                };
+
+                scene.rotation.y += deltaMove.x * 0.005;
+                scene.rotation.x += deltaMove.y * 0.005;
+
+                previousMousePosition = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+            }
+
+            // Update mouse position for raycaster
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            // Highlight hovered nodes
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(nodes.map(n => n.mesh));
+
+            nodes.forEach(node => {
+                node.mesh.material.emissiveIntensity = 0.3;
+            });
+
+            if (intersects.length > 0) {
+                intersects[0].object.material.emissiveIntensity = 0.7;
+                document.body.style.cursor = 'pointer';
+            } else {
+                document.body.style.cursor = 'default';
+            }
+        }
+
+        function onMouseUp() {
+            isDragging = false;
+        }
+
+        function onNodeClick(event) {
+            if (isDragging) return;
+
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(nodes.map(n => n.mesh));
+
+            if (intersects.length > 0) {
+                const nodeData = intersects[0].object.userData;
+                showModal(nodeData);
+            }
+        }
+
+        function showModal(data) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+
+            let content = data.content;
+            if (!content && data.children) {
+                // If major node without content, show all children
+                content = {
+                    title: data.label,
+                    body: data.children.map(child => `
+                        <h3>${child.content.title}</h3>
+                        ${child.content.body}
+                    `).join('')
+                };
+            }
+
+            if (content) {
+                modalBody.innerHTML = `
+                    <h2>${content.title}</h2>
+                    ${content.body}
+                `;
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Subtle auto-rotation when not dragging
+            if (!isDragging) {
+                scene.rotation.y += 0.001;
+            }
+
+            // Pulse effect on nodes
+            const time = Date.now() * 0.001;
+            nodes.forEach((node, index) => {
+                const pulse = Math.sin(time + index) * 0.1 + 0.9;
+                node.mesh.material.opacity = 0.7 + pulse * 0.1;
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        // Initialize
+        init();
+    </script>
 </body>
 </html>
