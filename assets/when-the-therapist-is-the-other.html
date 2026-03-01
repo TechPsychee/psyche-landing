@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When the Therapist Is the Other — Psyche Solutions</title>
+    <meta name="description"
+        content="What happens when the clinician is also the margin? On the politics of the consulting room, Fanon's ghost, and the countertransference nobody trained you for.">
+    <meta property="og:title" content="When the Therapist Is the Other — Psyche Solutions">
+    <meta property="og:description"
+        content="What happens when the clinician is also the margin? On the politics of the consulting room and the countertransference nobody trained you for.">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Psyche Solutions">
+    <link rel="canonical" href="https://psyche.solutions/assets/when-the-therapist-is-the-other.html">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23b87333'>ψ</text></svg>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a1a;
+            --ink-light: #4a4a4a;
+            --ink-muted: #6b6b6b;
+            --parchment: #f5f0e8;
+            --parchment-deep: #e8e0d0;
+            --parchment-light: #faf7f2;
+            --accent-copper: #b87333;
+            --accent-copper-light: #d4956a;
+            --accent-sage: #5f7161;
+            --accent-deep: #2d3748;
+            --shadow-soft: rgba(26, 26, 26, 0.06);
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--parchment);
+            color: var(--ink);
+            line-height: 1.7;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(245, 240, 232, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 8px var(--shadow-soft);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent-copper);
+        }
+
+        .nav-back {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-back:hover {
+            color: var(--accent-copper);
+        }
+
+        .essay-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 140px 24px 60px;
+            text-align: center;
+        }
+
+        .essay-header .tag {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-copper);
+            margin-bottom: 20px;
+        }
+
+        .essay-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+
+        .essay-header .meta {
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+        }
+
+        .essay-header .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent-copper);
+            margin: 40px auto 0;
+        }
+
+        .essay-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px 100px;
+        }
+
+        .essay-body p {
+            font-size: 1.05rem;
+            color: var(--ink-light);
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .essay-body h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin: 48px 0 20px;
+        }
+
+        .essay-body blockquote {
+            border-left: 3px solid var(--accent-copper);
+            padding: 4px 0 4px 24px;
+            margin: 32px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--ink-light);
+            line-height: 1.7;
+        }
+
+        .essay-body em {
+            color: var(--ink);
+        }
+
+        .essay-body a {
+            color: var(--accent-copper);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .essay-footer {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            border-top: 1px solid rgba(184, 115, 51, 0.15);
+            text-align: center;
+        }
+
+        .essay-footer a {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-copper);
+            text-decoration: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(184, 115, 51, 0.15);
+        }
+
+        .footer p {
+            font-size: 0.8rem;
+            color: var(--ink-muted);
+        }
+
+        @media (max-width: 640px) {
+            .nav {
+                padding: 16px 20px;
+            }
+
+            .essay-header {
+                padding: 120px 20px 48px;
+            }
+
+            .essay-body {
+                padding: 32px 20px 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <a href="../" class="nav-logo">psyche<span>.</span>solutions</a>
+        <a href="../#essays" class="nav-back">← All Essays</a>
+    </nav>
+
+    <header class="essay-header">
+        <div class="tag">Clinical</div>
+        <h1>When the Therapist Is the Other</h1>
+        <div class="meta">March 2026 · 10 min read</div>
+        <div class="divider"></div>
+    </header>
+
+    <article class="essay-body">
+
+        <p>There is a scene that plays out in consulting rooms all over the world, every single day, and nobody writes
+            about it honestly. A patient walks in. The therapist is sitting there. And before a single word is spoken —
+            before the presenting complaint, before the history, before the tentative "so, what brings you here today?"
+            — something has already happened. The patient has looked at the therapist and made a series of calculations
+            that have nothing to do with psychoanalytic theory and everything to do with power.</p>
+
+        <p>Is this person like me? Can this person understand me? Does this person belong to the group that has
+            historically caused my suffering?</p>
+
+        <p>These are not neurotic distortions. These are not transferential projections to be interpreted away. These
+            are rational assessments of social reality. And the entire psychoanalytic tradition — the tradition that
+            prides itself on taking the unconscious seriously — has been remarkably, almost impressively, bad at taking
+            <em>this</em> seriously.</p>
+
+        <h2>The Invisible Therapist (A Convenient Fiction)</h2>
+
+        <p>Classical psychoanalytic technique is built on a fantasy: the blank screen. The analyst as a neutral surface
+            onto which the patient projects their internal world. It's a beautiful idea. It's also — and let's just say
+            it — a fantasy that only works if the analyst is the default. If the analyst is white, straight, cisgender,
+            from the dominant culture, educated at the right institutions. In that case, the analyst's identity is
+            invisible. It doesn't register as an identity at all. It registers as normal. And normalcy, in the
+            consulting room as everywhere else, is power that doesn't have to announce itself.</p>
+
+        <p>But what happens when the therapist is not the default? When the therapist is queer in a heteronormative
+            clinical culture? When the therapist is from an ethnic minority in a country that considers them, at best, a
+            guest? When the therapist speaks the patient's language with the wrong accent, or the right accent, or an
+            accent that signifies a history the patient would rather not think about?</p>
+
+        <p>What happens is that the blank screen cracks. And behind it is a person. A person with a body, a history, a
+            set of social coordinates that the patient reads — instantly, automatically, and often with devastating
+            accuracy.</p>
+
+        <p>The training manuals don't have a chapter for this.</p>
+
+        <h2>Fanon Was a Clinician (People Forget This)</h2>
+
+        <p>Frantz Fanon is usually read as a political philosopher. Postcolonial theory. Decolonization. Violence and
+            liberation. All of that is true. But Fanon was also a psychiatrist. He ran a psychiatric hospital in Algeria
+            during the French colonial war. He treated patients — both Algerian and French — while the colonial
+            structure was literally tearing the country apart. And he noticed something that the profession still hasn't
+            fully absorbed: the colonial relationship doesn't stop at the door of the clinic.</p>
+
+        <p>Fanon described what he called the "psychoexistential" experience of being Black in a white world — the
+            experience of being constituted as an object in the gaze of the other. You don't just encounter racism.
+            Racism encounters you. It gets inside. It shapes how you see yourself seeing yourself. And it does this not
+            through ideology alone, but through the body, through everyday interpersonal encounters, through the
+            micro-moments that accumulate into a psychic structure.</p>
+
+        <p>Now transpose this into the consulting room. A therapist from a marginalized background sits across from a
+            patient from the dominant culture. Who is the object of whose gaze? The training says: the patient is the
+            focus. The patient's internal world. The patient's projections. But Fanon would ask a different question:
+            whose reality is being treated as the neutral backdrop? And whose reality is being treated as the thing that
+            needs explaining?</p>
+
+        <p>Because here's what actually happens. The patient, perhaps without meaning to — perhaps even with the best of
+            intentions — says something that reveals an assumption. An assumption about where the therapist is from.
+            About what the therapist knows. About the therapist's competence, cultural familiarity, authority. And the
+            therapist has to make a decision in real time: Do I interpret this? Do I let it pass? Is this transference,
+            or is this just Tuesday in a society that has opinions about people who look like me?</p>
+
+        <h2>The Countertransference Nobody Trained You For</h2>
+
+        <p>Countertransference, in the classical sense, is what the therapist feels in response to the patient. It's
+            supposed to be a clinical tool — a source of information about the patient's unconscious. The therapist
+            monitors their own emotional reactions and uses them as data. Elegant, in theory.</p>
+
+        <p>But what about the countertransference that isn't <em>about</em> the patient? What about the feeling that
+            arises not from the therapeutic relationship but from the social one? The queer therapist who feels a
+            flicker of vigilance when a new patient starts talking about "traditional values." The therapist of color
+            who feels their jaw tighten when a white patient says something well-meaning about diversity. The clinician
+            from a refugee background who notices they're working twice as hard to appear professional, composed,
+            authoritative — because they know, from a lifetime of experience, that people like them are granted
+            authority provisionally, conditionally, and it can be revoked at any moment.</p>
+
+        <p>Is that countertransference? Or is that survival?</p>
+
+        <p>The honest answer is: it's both. And the clinical tradition gives you almost no framework for holding both
+            simultaneously. You're supposed to be the container — Bion's famous concept. The therapist receives the
+            patient's unprocessed emotional material, metabolizes it, and returns it in a more digestible form.
+            Beautiful. But who contains the container when the container is also carrying the weight of their own social
+            existence in a world that othered them long before they ever sat in a therapist's chair?</p>
+
+        <p>The profession's answer, historically, has been: personal analysis. Go work it out in your own therapy. Which
+            is fine, as far as it goes. But it locates the problem inside the individual therapist. It treats structural
+            violence as a personal issue to be resolved. And this is precisely the move that Fanon spent his entire
+            career arguing against.</p>
+
+        <h2>The Double Consciousness of the Consulting Room</h2>
+
+        <p>W.E.B. Du Bois described double consciousness as the experience of always seeing yourself through the eyes of
+            the dominant culture — measuring your soul by the tape of a world that looks on in amused contempt and pity.
+            It's a concept from 1903 and it hasn't aged a day.</p>
+
+        <p>The marginalized clinician lives a clinical version of this. They are simultaneously inside the therapeutic
+            role — listening, reflecting, interpreting, holding the frame — and outside it, monitoring how they are
+            being perceived, calculating whether their interventions will be received as authoritative or dismissed as
+            insufficient, wondering whether the patient's idealization is genuine or compensatory, whether the patient's
+            hostility is transferential or just good old-fashioned prejudice dressed up in therapeutic language.</p>
+
+        <p>This is exhausting. It is also, paradoxically, a source of clinical knowledge that the default therapist
+            simply does not have access to.</p>
+
+        <p>Because the marginalized clinician knows something about otherness from the inside. Not theoretically. Not
+            from a textbook chapter on cultural sensitivity. From life. They know what it feels like to have your
+            internal reality overwritten by someone else's assumptions. They know what it costs to maintain a coherent
+            self in a world that keeps telling you your self is a problem. And this knowledge — if the profession would
+            let them use it — is clinically invaluable.</p>
+
+        <p>The patient who comes in feeling like nobody understands them? The marginalized clinician has a version of
+            that experience that isn't empathic imagination. It's memory.</p>
+
+        <h2>The Problem With "Cultural Competence"</h2>
+
+        <p>Somewhere in the last two decades, the mental health profession decided to solve this problem. The solution
+            they came up with was "cultural competence." Take a workshop. Learn about different cultures. Be sensitive.
+            Be aware. Add a module to the training curriculum. Check the box.</p>
+
+        <p>The problem with cultural competence is that it treats culture like a foreign language — something you can
+            learn enough of to get by. A phrase book for otherness. "In this culture, they value family." "In that
+            culture, eye contact means something different." As if knowing these facts changes anything fundamental
+            about the power dynamics of the clinical encounter.</p>
+
+        <p>What cultural competence almost never addresses is the clinician's own position. Not their knowledge
+            <em>about</em> the other, but their position <em>as</em> the other — or as the default, which is just as
+            clinically relevant and far less examined. Cultural competence asks: do you understand your patient's
+            culture? It almost never asks: does your patient experience you as culture? As power? As the institution
+            that has historically pathologized people like them?</p>
+
+        <p>And it almost never — almost <em>never</em> — asks: what happens when you, the clinician, are the one who has
+            been pathologized? When your sexuality was a diagnosis until recently? When your ethnicity was a risk factor
+            in someone's research? When the very theories you were trained in were developed by people who would have
+            considered you a case study, not a colleague?</p>
+
+        <p>This isn't a sensitivity issue. This is an epistemological crisis. The marginalized clinician is asked to
+            practice within a framework that was not built with them in mind — and then to do so with the quiet,
+            professional composure of someone for whom the framework fits perfectly.</p>
+
+        <h2>What Would an Honest Psychoanalysis Look Like?</h2>
+
+        <p>An honest psychoanalysis — one that actually reckoned with the social reality of the consulting room — would
+            start by acknowledging something uncomfortable: the therapeutic relationship is not outside politics. It is
+            not a protected space where power dynamics are suspended. The frame doesn't neutralize the social field. It
+            concentrates it.</p>
+
+        <p>Two people sit in a room. One is designated the knower. One is designated the one who needs to be known. One
+            speaks. The other listens. One pays. The other is paid. These are power arrangements. And when one of those
+            two people also carries the social weight of being marked as other — as less than, as suspicious, as not
+            quite belonging — the power arrangements don't cancel out. They compound.</p>
+
+        <p>An honest psychoanalysis would take this as clinical material, not as noise to be filtered out. It would
+            recognize that the queer therapist's hypervigilance is not a personal failing but a form of social
+            knowledge. That the immigrant clinician's impostor syndrome is not just impostor syndrome — it's the
+            internalization of a system that distributes authority along ethnic lines and then tells you the
+            distribution is meritocratic.</p>
+
+        <p>It would also recognize — and this is the harder part — that the marginalized clinician's position creates
+            specific therapeutic possibilities. Not despite the marginality, but through it. The therapist who has been
+            othered carries a particular sensitivity to the experience of not being seen. And in a profession that is
+            fundamentally about seeing and being seen, that is not a deficit. That is a clinical instrument.</p>
+
+        <p>The question is whether the profession is willing to hear it.</p>
+
+        <p>The question is whether the profession has ever been willing to hear it.</p>
+
+        <p>The question, frankly, is whether a tradition that spent a century treating homosexuality as a disorder, that
+            exported its theories to the colonies without a second thought, that still teaches Oedipus as universal
+            while ignoring kinship structures that don't fit the model — whether that tradition has the capacity to
+            recognize that the margin is not the periphery. It is, for many of the people sitting in both chairs, the
+            center of the clinical experience.</p>
+
+        <p>And until the training reflects that — not as an elective, not as a special interest module, but as a
+            foundational principle — the therapist who is also the other will continue doing what marginalized people
+            have always done in institutions that weren't built for them: the extra work, in silence, and then going
+            home tired in a way that has no name in the diagnostic manual.</p>
+
+    </article>
+
+    <div class="essay-footer">
+        <a href="../#essays">← Back to All Essays</a>
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Psyche Solutions</p>
+    </footer>
+
+</body>
+
+</html>
