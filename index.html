@@ -4,661 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Psyche Solutions — Where Psychoanalysis Meets the Digital Age</title>
-<meta name="description" content="Exploring the intersections of psychoanalytic thought, technology, and the human condition. Essays, reflections, and critical inquiry by Yakup Işık.">
-<meta name="author" content="Yakup Işık">
+<meta name="description" content="Exploring the intersections of psychoanalytic thought, technology, and the human condition. Essays, reflections, and critical inquiry.">
+<meta name="author" content="Psyche Solutions">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://psyche.solutions/">
-
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://psyche.solutions/">
 <meta property="og:site_name" content="Psyche Solutions">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="Psyche Solutions — Where Psychoanalysis Meets the Digital Age">
-<meta property="og:description" content="Exploring the intersections of psychoanalytic thought, technology, and the human condition. Essays, reflections, and critical inquiry by Yakup Işık.">
+<meta property="og:description" content="Exploring the intersections of psychoanalytic thought, technology, and the human condition. Essays, reflections, and critical inquiry.">
 <meta property="og:image" content="https://psyche.solutions/assets/og-image.png">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Psyche Solutions — Where Psychoanalysis Meets the Digital Age">
-<meta name="twitter:description" content="Exploring the intersections of psychoanalytic thought, technology, and the human condition. Essays, reflections, and critical inquiry by Yakup Işık.">
+<meta name="twitter:description" content="Exploring the intersections of psychoanalytic thought, technology, and the human condition.">
 <meta name="twitter:image" content="https://psyche.solutions/assets/og-image.png">
-
-<!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://psyche.solutions/#author",
-      "name": "Yakup Işık",
-      "url": "https://psyche.solutions",
-      "email": "yakup.isik@sabanciuniv.edu",
-      "description": "Psychologist, researcher, and translator working at the intersection of psychoanalytic thought, technology, and social justice.",
-      "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "Istanbul University" },
-        { "@type": "CollegeOrUniversity", "name": "Sabancı University" }
-      ],
-      "knowsAbout": ["Psychoanalysis", "AI in Mental Health", "Critical Theory", "Psychology", "Mentalization"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://psyche.solutions/#website",
-      "url": "https://psyche.solutions",
-      "name": "Psyche Solutions",
-      "description": "Exploring the intersections of psychoanalytic thought, technology, and the human condition.",
-      "author": { "@id": "https://psyche.solutions/#author" }
-    }
-  ]
-}
+{"@context":"https://schema.org","@type":"WebSite","url":"https://psyche.solutions","name":"Psyche Solutions","description":"Exploring the intersections of psychoanalytic thought, technology, and the human condition."}
 </script>
-
-<!-- Favicon (inline SVG) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23b87333'>ψ</text></svg>">
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1a1a1a;
-    --ink-light: #4a4a4a;
-    --ink-muted: #6b6b6b;
-    --parchment: #f5f0e8;
-    --parchment-deep: #e8e0d0;
-    --parchment-light: #faf7f2;
-    --accent-copper: #b87333;
-    --accent-copper-light: #d4956a;
-    --accent-wine: #722f37;
-    --accent-sage: #5f7161;
-    --accent-slate: #4a5568;
-    --accent-deep: #2d3748;
-    --shadow-soft: rgba(26, 26, 26, 0.06);
-    --shadow-medium: rgba(26, 26, 26, 0.12);
-    --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--parchment);
-    color: var(--ink);
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* === NAVIGATION === */
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: var(--transition);
-    background: transparent;
-  }
-
-  .nav.scrolled {
-    background: rgba(245, 240, 232, 0.95);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 8px var(--shadow-soft);
-    padding: 14px 40px;
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-  }
-
-  .nav-logo span {
-    color: var(--accent-copper);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: var(--transition);
-    position: relative;
-  }
-
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1.5px;
-    background: var(--accent-copper);
-    transition: var(--transition);
-  }
-
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a:hover::after { width: 100%; }
-
-  /* Mobile menu */
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 4px;
-  }
-
-  .nav-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--ink);
-    transition: var(--transition);
-  }
-
-  /* === HERO === */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 120px 40px 80px;
-    position: relative;
-    background: linear-gradient(180deg, var(--parchment-deep) 0%, var(--parchment) 60%, var(--parchment-light) 100%);
-  }
-
-  .hero::before {
-    content: 'ψ';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(15rem, 30vw, 28rem);
-    color: var(--accent-copper);
-    opacity: 0.04;
-    pointer-events: none;
-    line-height: 1;
-  }
-
-  .hero-label {
-    font-size: 0.72rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--accent-copper);
-    margin-bottom: 28px;
-    opacity: 0;
-    animation: fadeDown 0.8s ease 0.2s forwards;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 24px;
-    max-width: 800px;
-    opacity: 0;
-    animation: fadeDown 0.8s ease 0.4s forwards;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent-copper);
-  }
-
-  .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    font-style: italic;
-    color: var(--ink-light);
-    max-width: 560px;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeDown 0.8s ease 0.6s forwards;
-  }
-
-  .hero-divider {
-    width: 80px;
-    height: 2px;
-    background: var(--accent-copper);
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeDown 0.8s ease 0.7s forwards;
-  }
-
-  .hero-scroll {
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    opacity: 0;
-    animation: fadeDown 0.8s ease 0.9s forwards;
-    transition: var(--transition);
-  }
-
-  .hero-scroll:hover { color: var(--accent-copper); }
-
-  .hero-scroll::after {
-    content: '↓';
-    display: block;
-    margin-top: 8px;
-    font-size: 1.2rem;
-    animation: bobDown 2s ease-in-out infinite;
-  }
-
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes bobDown {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-
-  /* === SECTION COMMON === */
-  .section {
-    padding: 100px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--accent-copper);
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 20px;
-    line-height: 1.25;
-  }
-
-  .section-intro {
-    font-size: 1.02rem;
-    color: var(--ink-light);
-    max-width: 640px;
-    margin-bottom: 56px;
-    line-height: 1.8;
-  }
-
-  /* === ABOUT SECTION === */
-  #about {
-    background: var(--parchment-light);
-    max-width: 100%;
-    padding: 100px 40px;
-  }
-
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .about-portrait {
-    position: relative;
-  }
-
-  .about-portrait-frame {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: var(--parchment-deep);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 8px 32px var(--shadow-medium);
-  }
-
-  .about-portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .about-portrait-accent {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--accent-copper);
-    border-radius: 8px;
-    z-index: -1;
-  }
-
-  .about-text .section-label { margin-bottom: 12px; }
-
-  .about-body {
-    font-size: 1rem;
-    color: var(--ink-light);
-    line-height: 1.85;
-    margin-bottom: 32px;
-  }
-
-  .about-body + .about-body { margin-top: -12px; }
-
-  .about-credentials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 32px;
-  }
-
-  .credential-tag {
-    font-size: 0.78rem;
-    letter-spacing: 0.5px;
-    padding: 8px 16px;
-    border: 1px solid var(--accent-copper);
-    border-radius: 100px;
-    color: var(--accent-copper);
-    background: transparent;
-  }
-
-  /* === ESSAYS / WRITING SECTION === */
-  .essays-tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
-
-  .essays-tab {
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 8px 20px;
-    border: 1px solid rgba(184, 115, 51, 0.35);
-    border-radius: 100px;
-    background: transparent;
-    color: var(--ink-muted);
-    cursor: pointer;
-    transition: var(--transition);
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .essays-tab:hover {
-    border-color: var(--accent-copper);
-    color: var(--accent-copper);
-  }
-
-  .essays-tab.active {
-    background: var(--accent-copper);
-    border-color: var(--accent-copper);
-    color: var(--parchment-light);
-  }
-
-  .essays-grid {
-    display: grid;
-    gap: 0;
-    border-top: 1px solid rgba(184, 115, 51, 0.2);
-  }
-
-  .essay-item {
-    display: grid;
-    grid-template-columns: 120px 1fr auto;
-    gap: 32px;
-    align-items: baseline;
-    padding: 36px 0;
-    border-bottom: 1px solid rgba(184, 115, 51, 0.15);
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-    cursor: pointer;
-  }
-
-  .essay-item:hover {
-    padding-left: 12px;
-    background: linear-gradient(90deg, rgba(184, 115, 51, 0.04), transparent 70%);
-  }
-
-  .essay-date {
-    font-size: 0.82rem;
-    color: var(--ink-muted);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .essay-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 6px;
-    line-height: 1.35;
-    transition: var(--transition);
-  }
-
-  .essay-item:hover .essay-title { color: var(--accent-copper); }
-
-  .essay-excerpt {
-    font-size: 0.92rem;
-    color: var(--ink-muted);
-    line-height: 1.6;
-  }
-
-  .essay-tag {
-    font-size: 0.72rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--accent-sage);
-    white-space: nowrap;
-    align-self: center;
-  }
-
-  /* === TERRITORIES SECTION === */
-  #territories {
-    background: var(--accent-deep);
-    max-width: 100%;
-    padding: 100px 40px;
-    color: var(--parchment);
-  }
-
-  .territories-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  #territories .section-label { color: var(--accent-copper-light); }
-  #territories .section-title { color: var(--parchment); }
-  #territories .section-intro { color: rgba(245, 240, 232, 0.65); }
-
-  .territories-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .territory-card {
-    padding: 36px 28px;
-    border: 1px solid rgba(184, 115, 51, 0.25);
-    border-radius: 10px;
-    transition: var(--transition);
-    background: rgba(255, 255, 255, 0.03);
-  }
-
-  .territory-card:hover {
-    border-color: var(--accent-copper);
-    background: rgba(184, 115, 51, 0.06);
-    transform: translateY(-4px);
-  }
-
-  .territory-symbol {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    color: var(--accent-copper-light);
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .territory-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--parchment);
-    margin-bottom: 10px;
-  }
-
-  .territory-desc {
-    font-size: 0.88rem;
-    color: rgba(245, 240, 232, 0.55);
-    line-height: 1.7;
-  }
-
-  /* === CONTACT SECTION === */
-  #contact {
-    text-align: center;
-    padding: 120px 40px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .contact-email {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-    color: var(--accent-copper);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: var(--transition);
-  }
-
-  .contact-email:hover {
-    border-bottom-color: var(--accent-copper);
-  }
-
-  .contact-note {
-    font-size: 0.92rem;
-    color: var(--ink-muted);
-    margin-top: 24px;
-    line-height: 1.7;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 32px;
-  }
-
-  .contact-links a {
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-
-  .contact-links a:hover { color: var(--accent-copper); }
-
-  /* === FOOTER === */
-  .footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid rgba(184, 115, 51, 0.15);
-  }
-
-  .footer p {
-    font-size: 0.8rem;
-    color: var(--ink-muted);
-  }
-
-  .footer em {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.95rem;
-    display: block;
-    margin-bottom: 8px;
-    color: var(--ink-light);
-  }
-
-  /* === RESPONSIVE === */
-  @media (max-width: 900px) {
-    .about-inner {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    .about-portrait { max-width: 320px; }
-
-    .territories-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .essay-item {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .essay-tag { display: none; }
-  }
-
-  @media (max-width: 640px) {
-    .nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .nav-links.open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: rgba(245, 240, 232, 0.98);
-      backdrop-filter: blur(12px);
-      padding: 24px 32px;
-      gap: 20px;
-      box-shadow: 0 4px 16px var(--shadow-soft);
-    }
-    .nav-toggle { display: flex; }
-
-    .hero { padding: 100px 24px 60px; }
-    .section { padding: 72px 24px; }
-    #about, #territories { padding: 72px 24px; }
-  }
-
-  /* === SCROLL ANIMATIONS === */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+:root{--ink:#1a1a1a;--ink-light:#4a4a4a;--ink-muted:#6b6b6b;--parchment:#f5f0e8;--parchment-deep:#e8e0d0;--parchment-light:#faf7f2;--accent-copper:#b87333;--accent-copper-light:#d4956a;--accent-wine:#722f37;--accent-sage:#5f7161;--accent-slate:#4a5568;--accent-deep:#2d3748;--shadow-soft:rgba(26,26,26,0.06);--shadow-medium:rgba(26,26,26,0.12);--transition:0.3s cubic-bezier(0.25,0.46,0.45,0.94)}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--parchment);color:var(--ink);line-height:1.7;overflow-x:hidden}.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:var(--transition);background:transparent}.nav.scrolled{background:rgba(245,240,232,0.95);backdrop-filter:blur(12px);box-shadow:0 1px 8px var(--shadow-soft);padding:14px 40px}.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:0.5px}.nav-logo span{color:var(--accent-copper)}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:0.85rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;transition:var(--transition);position:relative}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent-copper);transition:var(--transition)}.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}.nav-toggle span{width:24px;height:2px;background:var(--ink);transition:var(--transition)}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 40px 80px;position:relative;background:linear-gradient(180deg,var(--parchment-deep) 0%,var(--parchment) 60%,var(--parchment-light) 100%)}.hero::before{content:'ψ';position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);font-family:'Cormorant Garamond',serif;font-size:clamp(15rem,30vw,28rem);color:var(--accent-copper);opacity:0.04;pointer-events:none;line-height:1}.hero-label{font-size:0.72rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent-copper);margin-bottom:28px;opacity:0;animation:fadeDown 0.8s ease 0.2s forwards}.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:24px;max-width:800px;opacity:0;animation:fadeDown 0.8s ease 0.4s forwards}.hero h1 em{font-style:italic;color:var(--accent-copper)}.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.35rem);font-style:italic;color:var(--ink-light);max-width:560px;margin-bottom:48px;opacity:0;animation:fadeDown 0.8s ease 0.6s forwards}.hero-divider{width:80px;height:2px;background:var(--accent-copper);margin-bottom:48px;opacity:0;animation:fadeDown 0.8s ease 0.7s forwards}.hero-scroll{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;opacity:0;animation:fadeDown 0.8s ease 0.9s forwards;transition:var(--transition)}.hero-scroll:hover{color:var(--accent-copper)}.hero-scroll::after{content:'↓';display:block;margin-top:8px;font-size:1.2rem;animation:bobDown 2s ease-in-out infinite}@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}@keyframes bobDown{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}.section{padding:100px 40px;max-width:1100px;margin:0 auto}.section-label{font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent-copper);margin-bottom:16px}.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;color:var(--ink);margin-bottom:20px;line-height:1.25}.section-intro{font-size:1.02rem;color:var(--ink-light);max-width:640px;margin-bottom:56px;line-height:1.8}.essays-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}.essays-tab{font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;padding:8px 20px;border:1px solid rgba(184,115,51,0.35);border-radius:100px;background:transparent;color:var(--ink-muted);cursor:pointer;transition:var(--transition);font-family:'DM Sans',sans-serif}.essays-tab:hover{border-color:var(--accent-copper);color:var(--accent-copper)}.essays-tab.active{background:var(--accent-copper);border-color:var(--accent-copper);color:var(--parchment-light)}.essays-grid{display:grid;gap:0;border-top:1px solid rgba(184,115,51,0.2)}.essay-item{display:grid;grid-template-columns:120px 1fr auto;gap:32px;align-items:baseline;padding:36px 0;border-bottom:1px solid rgba(184,115,51,0.15);text-decoration:none;color:inherit;transition:var(--transition);cursor:pointer}.essay-item:hover{padding-left:12px;background:linear-gradient(90deg,rgba(184,115,51,0.04),transparent 70%)}.essay-date{font-size:0.82rem;color:var(--ink-muted);font-variant-numeric:tabular-nums}.essay-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.35;transition:var(--transition)}.essay-item:hover .essay-title{color:var(--accent-copper)}.essay-excerpt{font-size:0.92rem;color:var(--ink-muted);line-height:1.6}.essay-tag{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--accent-sage);white-space:nowrap;align-self:center}#territories{background:var(--accent-deep);max-width:100%;padding:100px 40px;color:var(--parchment)}.territories-inner{max-width:1100px;margin:0 auto}#territories .section-label{color:var(--accent-copper-light)}#territories .section-title{color:var(--parchment)}#territories .section-intro{color:rgba(245,240,232,0.65)}.territories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.territory-card{padding:36px 28px;border:1px solid rgba(184,115,51,0.25);border-radius:10px;transition:var(--transition);background:rgba(255,255,255,0.03)}.territory-card:hover{border-color:var(--accent-copper);background:rgba(184,115,51,0.06);transform:translateY(-4px)}.territory-symbol{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent-copper-light);margin-bottom:16px;display:block}.territory-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--parchment);margin-bottom:10px}.territory-desc{font-size:0.88rem;color:rgba(245,240,232,0.55);line-height:1.7}#about{background:var(--parchment-light);max-width:100%;padding:100px 40px}.about-inner{max-width:780px;margin:0 auto}.about-body{font-size:1.02rem;color:var(--ink-light);line-height:1.85;margin-bottom:24px}.about-body em{color:var(--ink);font-style:italic}#contact{text-align:center;padding:120px 40px;max-width:700px;margin:0 auto}.contact-email{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--accent-copper);text-decoration:none;border-bottom:1px solid transparent;transition:var(--transition)}.contact-email:hover{border-bottom-color:var(--accent-copper)}.contact-note{font-size:0.92rem;color:var(--ink-muted);margin-top:24px;line-height:1.7}.contact-links{display:flex;justify-content:center;gap:32px;margin-top:32px}.contact-links a{font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;transition:var(--transition)}.contact-links a:hover{color:var(--accent-copper)}.footer{text-align:center;padding:40px;border-top:1px solid rgba(184,115,51,0.15)}.footer p{font-size:0.8rem;color:var(--ink-muted)}.footer em{font-family:'Cormorant Garamond',serif;font-size:0.95rem;display:block;margin-bottom:8px;color:var(--ink-light)}@media(max-width:900px){.territories-grid{grid-template-columns:1fr}.essay-item{grid-template-columns:1fr;gap:8px}.essay-tag{display:none}}@media(max-width:640px){.nav{padding:16px 24px}.nav-links{display:none}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(245,240,232,0.98);backdrop-filter:blur(12px);padding:24px 32px;gap:20px;box-shadow:0 4px 16px var(--shadow-soft)}.nav-toggle{display:flex}.hero{padding:100px 24px 60px}.section{padding:72px 24px}#about,#territories{padding:72px 24px}}.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">psyche<span>.</span>solutions</a>
   <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
@@ -672,7 +43,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-label">Psychoanalysis · Technology · Critical Inquiry</div>
   <h1>Where the <em>Psyche</em> Meets Its Solutions</h1>
@@ -681,7 +51,6 @@
   <a href="#essays" class="hero-scroll">Explore</a>
 </section>
 
-<!-- ESSAYS -->
 <section class="section" id="essays">
   <div class="reveal">
     <div class="section-label">Writing</div>
@@ -699,6 +68,27 @@
 
   <div class="essays-grid reveal" id="essays-grid">
 
+    <!--
+    ===================== HOW TO ADD A NEW ESSAY =====================
+
+    1. Copy essays/TEMPLATE.html → essays/your-slug.html
+    2. Edit the essay content in that file
+    3. Paste this block BELOW this comment (newest first):
+
+    <a class="essay-item" href="essays/your-slug.html" data-tag="TAG">
+      <span class="essay-date">Mar 2026</span>
+      <div class="essay-content">
+        <div class="essay-title">Your Title</div>
+        <p class="essay-excerpt">Your teaser sentence.</p>
+      </div>
+      <span class="essay-tag">Display Tag</span>
+    </a>
+
+    TAGS: ai-psychoanalysis | clinical | theory | critical-theory
+
+    ================================================================
+    -->
+
     <a class="essay-item" href="#" data-tag="ai-psychoanalysis">
       <span class="essay-date">Coming Soon</span>
       <div class="essay-content">
@@ -712,7 +102,7 @@
       <span class="essay-date">Coming Soon</span>
       <div class="essay-content">
         <div class="essay-title">The Stigma Machine</div>
-        <p class="essay-excerpt">Reflections from a decade of clinical work with HIV-positive individuals, LGBTQ+ communities, and the Romani women of Sulukule — on how society wounds, and how the psyche survives.</p>
+        <p class="essay-excerpt">Reflections from clinical work with HIV-positive individuals, LGBTQ+ communities, and Romani women — on how society wounds, and how the psyche survives.</p>
       </div>
       <span class="essay-tag">Clinical</span>
     </a>
@@ -738,142 +128,79 @@
   </div>
 </section>
 
-<!-- INTELLECTUAL TERRITORIES -->
 <section id="territories">
   <div class="territories-inner">
     <div class="reveal">
       <div class="section-label">Intellectual Territories</div>
-      <h2 class="section-title">Where I Think</h2>
-      <p class="section-intro">The domains that shape my work — each one a lens, each one incomplete without the others.</p>
+      <h2 class="section-title">Where We Think</h2>
+      <p class="section-intro">The domains that shape this project — each one a lens, each one incomplete without the others.</p>
     </div>
-
     <div class="territories-grid reveal">
       <div class="territory-card">
         <span class="territory-symbol">ψ</span>
         <div class="territory-name">Psychoanalytic Theory</div>
         <p class="territory-desc">Object relations, mentalization, the unconscious as a living archive. From Freud's Interpretation to Bion's container, the tradition that insists on depth.</p>
       </div>
-
       <div class="territory-card">
         <span class="territory-symbol">⟨/⟩</span>
         <div class="territory-name">AI & Mental Health</div>
         <p class="territory-desc">What happens when machine learning meets the talking cure? Investigating AI-mediated therapeutic interactions, their possibilities and their blind spots.</p>
       </div>
-
       <div class="territory-card">
         <span class="territory-symbol">◊</span>
         <div class="territory-name">Marginalized Voices</div>
         <p class="territory-desc">Clinical work with communities that mainstream psychology often fails — LGBTQ+ individuals, people living with HIV, Romani communities. Culturally-sensitive, politically aware practice.</p>
       </div>
-
       <div class="territory-card">
         <span class="territory-symbol">⊘</span>
         <div class="territory-name">Critical Perspectives</div>
         <p class="territory-desc">Fanon, Foucault, and the question of power in the consulting room. How do structures of domination enter the therapeutic relationship?</p>
       </div>
-
       <div class="territory-card">
         <span class="territory-symbol">≋</span>
         <div class="territory-name">Epistemology of Practice</div>
         <p class="territory-desc">What counts as knowledge in clinical psychology? Navigating the tensions between evidence-based practice and the wisdom of the consulting room.</p>
       </div>
-
       <div class="territory-card">
         <span class="territory-symbol">∞</span>
         <div class="territory-name">Translation & Language</div>
-        <p class="territory-desc">Translating psychoanalytic texts across languages. What is lost and found when the psyche speaks in Kurdish, Turkish, English, or German?</p>
+        <p class="territory-desc">Translating psychoanalytic texts across languages. What is lost and found when the psyche speaks across linguistic and cultural borders?</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
-    <div class="about-portrait reveal">
-      <div class="about-portrait-frame">
-        <!-- Replace with your actual photo -->
-        <div style="width:100%;height:100%;background:var(--parchment-deep);display:flex;align-items:center;justify-content:center;">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--accent-copper);opacity:0.3;">ψ</span>
-        </div>
-      </div>
-      <div class="about-portrait-accent"></div>
-    </div>
-
-    <div class="about-text reveal">
+    <div class="reveal">
       <div class="section-label">About</div>
-      <h2 class="section-title">Yakup Işık</h2>
-      <p class="about-body">I am a psychologist, researcher, and translator working at the intersection of psychoanalytic thought, technology, and social justice. My clinical practice spans a decade of work with marginalized communities — LGBTQ+ individuals, people living with HIV, and Romani women navigating the intersection of poverty and stigma.</p>
-      <p class="about-body">My recent research explores whether artificial intelligence can participate in the delicate process of mentalization — the capacity to understand behavior in terms of underlying mental states. As part of this work, I developed <em>Mindful Reflections</em>, an AI-assisted psychological support platform, funded by an OpenAI Researcher Access Grant.</p>
-      <p class="about-body">I hold degrees in Psychology (Istanbul University), Forensic Sciences (Istanbul University), and Information Technologies (Sabancı University). I am currently pursuing advanced training in clinical psychology and psychoanalytic psychotherapy in Europe.</p>
-
-      <div class="about-credentials">
-        <span class="credential-tag">BA Psychology</span>
-        <span class="credential-tag">MSc Forensic Sciences</span>
-        <span class="credential-tag">MSc Information Technologies</span>
-        <span class="credential-tag">OpenAI Research Grant</span>
-        <span class="credential-tag">Stanford — Political Psychology</span>
-        <span class="credential-tag">Psychoanalytic Translation</span>
-      </div>
+      <h2 class="section-title">About This Project</h2>
+      <p class="about-body"><em>Psyche Solutions</em> is a space for thinking at the intersection of psychoanalytic thought, technology, and critical inquiry. It exists because these conversations — about what AI can and cannot understand about the human mind, about the politics of the consulting room, about whether depth psychology can survive the age of algorithms — deserve a home outside the academy.</p>
+      <p class="about-body">The essays published here are not clinical advice. They are attempts to think carefully about questions that matter: What does it mean to understand another person? Can a machine participate in that process? What happens to the psyche in a world that optimizes for everything except depth?</p>
+      <p class="about-body">This project is rooted in the psychodynamic tradition but refuses to stay comfortably within it. It draws on critical theory, philosophy of science, and the lived experience of working with communities at the margins — because the psyche does not exist in a vacuum, and neither should the thinking about it.</p>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
     <div class="section-label">Get in Touch</div>
     <h2 class="section-title">Let's Think Together</h2>
-    <p class="contact-note" style="margin-bottom: 32px;">Whether you want to discuss ideas, collaborate on a project, or simply continue a conversation that started in one of these essays — I'd love to hear from you.</p>
-    <a href="mailto:yakup.isik@sabanciuniv.edu" class="contact-email">yakup.isik@sabanciuniv.edu</a>
+    <p class="contact-note" style="margin-bottom:32px">Whether you want to discuss ideas, respond to an essay, or propose a collaboration — we'd love to hear from you.</p>
+    <a href="mailto:hello@psyche.solutions" class="contact-email">hello@psyche.solutions</a>
     <div class="contact-links">
       <a href="https://github.com/TechPsychee" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://linkedin.com/in/yakupisik" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <em>"The unexamined psyche is not worth inhabiting."</em>
-  <p>© 2026 Psyche Solutions · Yakup Işık</p>
+  <p>© 2026 Psyche Solutions</p>
 </footer>
 
 <script>
-// Scroll-based nav
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
-
-// Intersection Observer for reveal animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Essay tab filtering
-document.querySelectorAll('.essays-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.essays-tab').forEach(t => {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
-    });
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-
-    const filter = tab.dataset.filter;
-    document.querySelectorAll('#essays-grid .essay-item').forEach(item => {
-      const show = filter === 'all' || item.dataset.tag === filter;
-      item.style.display = show ? '' : 'none';
-    });
-  });
-});
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));document.querySelectorAll('.essays-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.essays-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});tab.classList.add('active');tab.setAttribute('aria-selected','true');const f=tab.dataset.filter;document.querySelectorAll('#essays-grid .essay-item').forEach(i=>{i.style.display=(f==='all'||i.dataset.tag===f)?'':'none'})})});
 </script>
 
 </body>
