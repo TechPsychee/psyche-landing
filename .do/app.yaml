@@ -1,0 +1,10 @@
+name: psyche-solutions
+static_sites:
+  - name: psyche-solutions
+    source_dir: /
+    index_document: index.html
+    error_document: index.html
+    github:
+      repo: TechPsychee/psyche-landing
+      branch: main
+      deploy_on_push: true
